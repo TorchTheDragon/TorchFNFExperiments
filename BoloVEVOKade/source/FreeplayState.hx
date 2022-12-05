@@ -710,6 +710,7 @@ class FreeplayState extends MusicBeatState
 				if (FlxG.keys.justPressed.TAB)
 				{
 					chooseCharacter = !chooseCharacter;
+					daTroof = '$chooseCharacter';
 					chooseCharText.text = 'Choosing Character? ' + daTroof.toUpperCase();
 				}
 			}
