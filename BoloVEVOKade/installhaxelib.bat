@@ -10,7 +10,8 @@ haxelib install flixel
 lime setup flixel
 lime setup
 haxelib install flixel-tools
-haxelib run flixel-tools setup -y
+:: The line below isn't necessary but can still be run if ya want
+:: haxelib run flixel-tools setup -y
 haxelib install flixel-addons
 haxelib install flixel-ui
 haxelib install hscript

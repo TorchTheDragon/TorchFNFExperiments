@@ -110,14 +110,7 @@ class CharMenu extends MusicBeatState{
 
             var characterImage:Boyfriend = new Boyfriend(0, 0, unlockedCharacters[i]);
             characterImage.scale.set(0.8, 0.8);
-            /*
-            var sprTracker:FlxSprite = characterText;
-            if (sprTracker != null)
-            {
-                characterImage.x = (sprTracker.y * 2) + 90 - 350;
-                characterImage.y = FlxG.height / 3 - 68;
-            }
-            */
+
             characterImage.screenCenter(XY);
             imageArray.push(characterImage);
             add(characterImage);
@@ -215,7 +208,8 @@ class CharMenu extends MusicBeatState{
         for (i in 0...imageArray.length)
         {
             imageArray[i].alpha = 0.6;
-            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 350) + 125;
+            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 125;
+            imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2); // Will add more to this later to make it look nicer
         }
         imageArray[curSelected].alpha = 1;
 
