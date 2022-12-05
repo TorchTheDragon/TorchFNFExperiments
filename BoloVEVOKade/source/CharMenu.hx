@@ -26,8 +26,8 @@ import flixel.ui.FlxBar;
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico']; // Currently Selectable characters
-    var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
     var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas', 'Pico']; // Characters names
+    var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
     
     // Unlockable characters are not yet implemented, but will be hopefully soon
     // Requesting help btw if anyone has an idea on how to implement this
@@ -36,9 +36,9 @@ class CharMenu extends MusicBeatState{
     var unlockableCharsBGs:Array<String> = ['BG3']; // Backgrounds for Unlockable characters
     
     // This is the characters that actually appear on the menu
-    var unlockedCharacters:Array<String> = FlxG.save.data.unlockedChars;
-    var unlockedCharactersNames:Array<String> = FlxG.save.data.unlockedCharsNames;
-    var unlockedCharactersBGs:Array<String> = FlxG.save.data.unlockedCharsBGs;
+    var unlockedCharacters:Array<String> = [];
+    var unlockedCharactersNames:Array<String> = [];
+    var unlockedCharactersBGs:Array<String> = [];
     
     // Folder locations
     var backgroundFolder:String = 'background'; // The location of the folder storing the characters backgrounds
@@ -71,23 +71,20 @@ class CharMenu extends MusicBeatState{
         if (unlockedCharacters == null) 
         {
             unlockedCharacters = selectableCharacters;
-            FlxG.save.data.unlockedChars = selectableCharacters;
+            unlockedCharacters[0] = PlayState.SONG.player1;
         } 
         // If names are empty, fill it with defaults
         if (unlockedCharactersNames == null) 
         {
             unlockedCharactersNames = selectableCharactersNames;
-            FlxG.save.data.unlockedCharsNames = selectableCharactersNames;
         }
         // If backgrounds are empty, fill it with defaults
         if (unlockedCharactersBGs == null) 
         {
             unlockedCharactersBGs = selectableCharactersBGs;
-            FlxG.save.data.unlockedCharsBGs = selectableCharactersBGs;
         }
 
         unlockedCharacters[0] = PlayState.SONG.player1;
-        FlxG.save.data.unlockedChars[0] = PlayState.SONG.player1;
 
         // Making sure the background is added first to be in the back and then adding the character names and character images afterwords
         menuBG = new FlxSprite().loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
