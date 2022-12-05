@@ -5,7 +5,7 @@ import Section.SwagSection;
 
 // These may be swapped depending on what may need it. Some older ones may need a different one based on the 'Song' TypeDef
 // import Song.SwagSong; // Usually Used One
-import Song.SongData; // What my version of an engine is apparently using
+import Song.SongData; // What my version of Kade engine is apparently using
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -28,7 +28,7 @@ class CharMenu extends MusicBeatState{
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico']; // Currently Selectable characters
     var selectableCharactersNames:Array<String> = ['Boyfriend.XML', 'Boyfriend but Christmas', 'Pico']; // Characters names
     var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
-    var charOffsets:Array<Array<Int>> = [[0, 0], [0, 0], [0, 0]]; // Small offsets that YOU need to add to better center your characters
+    var charOffsets:Array<Array<Int>> = [[0, 0], [10, -10], [50, -10]]; // Small offsets that YOU need to add to better center your characters in the selection menu // Doesn't seem to work yet
     // Unlockable characters are not yet implemented, but will be hopefully soon
     // Requesting help btw if anyone has an idea on how to implement this
     var unlockableChars:Array<String> = ['torch']; // Unlockable Characters
