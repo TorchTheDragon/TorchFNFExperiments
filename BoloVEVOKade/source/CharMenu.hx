@@ -26,8 +26,9 @@ import flixel.ui.FlxBar;
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico']; // Currently Selectable characters
-    var selectableCharactersNames:Array<String> = ['Boyfriend.XML', 'Boyfriend but Christmas', 'Pico']; // Characters names
     var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
+    var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas', 'Pico']; // Characters names
+    
     // Unlockable characters are not yet implemented, but will be hopefully soon
     // Requesting help btw if anyone has an idea on how to implement this
     var unlockableChars:Array<String> = ['torch']; // Unlockable Characters
@@ -208,7 +209,7 @@ class CharMenu extends MusicBeatState{
         for (i in 0...imageArray.length)
         {
             imageArray[i].alpha = 0.6;
-            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 350) + 125;
+            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 125;
             imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2); // Will add more to this later to make it look nicer
         }
         imageArray[curSelected].alpha = 1;
@@ -263,5 +264,10 @@ class CharMenu extends MusicBeatState{
         icon.setGraphicSize(-4);
         icon.y = (bar.y - (icon.height / 2)) - 20;
         add(icon);
+    }
+
+    function unlockedCharsCheck()
+    {
+        // If savedata does not equal current data set to current data
     }
 }
