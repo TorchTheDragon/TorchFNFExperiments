@@ -11,11 +11,11 @@ I am just simply tired of being asked "Does this work on Psych?" a YEAR after I 
 
 # Does it work with Psych Engine?
 
-Soon, hopefuly, but right now, no.
+Yes, now please stop asking.
 
 # Can I just drag and drop the file into the Mods folder?
 
-No.
+No. Follow the instructions for the Engine. (When they are made obviously)
 
 # Can you make this compatible to put in the Mods folder?
 
