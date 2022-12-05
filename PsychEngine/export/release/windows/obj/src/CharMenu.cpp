@@ -22,9 +22,6 @@
 #ifndef INCLUDED_HealthIcon
 #include <HealthIcon.h>
 #endif
-#ifndef INCLUDED_LoadingState
-#include <LoadingState.h>
-#endif
 #ifndef INCLUDED_MusicBeatState
 #include <MusicBeatState.h>
 #endif
@@ -159,68 +156,52 @@
 #endif
 
 HX_DEFINE_STACK_FRAME(_hx_pos_413b220edf8d734a_26_new,"CharMenu","new",0x6f30cf27,"CharMenu.new","CharMenu.hx",26,0xc5f39229)
-static const int _hx_array_data_7c6aafb5_1[] = {
-	(int)0,(int)0,
-};
-static const ::String _hx_array_data_7c6aafb5_2[] = {
+static const ::String _hx_array_data_7c6aafb5_1[] = {
 	HX_("BG3",ce,52,32,00),
 };
-static const ::String _hx_array_data_7c6aafb5_3[] = {
+static const ::String _hx_array_data_7c6aafb5_2[] = {
 	HX_("Torch the Dragon",c6,1a,df,1c),
 };
-static const ::String _hx_array_data_7c6aafb5_4[] = {
+static const ::String _hx_array_data_7c6aafb5_3[] = {
 	HX_("torch",fc,d0,30,14),
 };
-static const int _hx_array_data_7c6aafb5_5[] = {
-	(int)0,(int)0,
-};
-static const int _hx_array_data_7c6aafb5_6[] = {
-	(int)10,(int)-10,
-};
-static const int _hx_array_data_7c6aafb5_7[] = {
-	(int)50,(int)-10,
-};
-static const ::String _hx_array_data_7c6aafb5_8[] = {
+static const ::String _hx_array_data_7c6aafb5_4[] = {
 	HX_("BG2",cd,52,32,00),HX_("BG2",cd,52,32,00),HX_("BG1",cc,52,32,00),
 };
-static const ::String _hx_array_data_7c6aafb5_9[] = {
+static const ::String _hx_array_data_7c6aafb5_5[] = {
 	HX_("Boyfriend.XML",93,50,95,7f),HX_("Boyfriend but Christmas",6d,3a,dd,28),HX_("Pico",05,15,31,35),
 };
-static const ::String _hx_array_data_7c6aafb5_10[] = {
+static const ::String _hx_array_data_7c6aafb5_6[] = {
 	HX_("bf",c4,55,00,00),HX_("bf-christmas",79,02,f4,24),HX_("pico",e5,e8,57,4a),
 };
-HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_65_create,"CharMenu","create",0x266e9e95,"CharMenu.create","CharMenu.hx",65,0xc5f39229)
-static const bool _hx_array_data_7c6aafb5_13[] = {
+HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_62_create,"CharMenu","create",0x266e9e95,"CharMenu.create","CharMenu.hx",62,0xc5f39229)
+static const bool _hx_array_data_7c6aafb5_9[] = {
 	0,
 };
-HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_151_update,"CharMenu","update",0x3164bda2,"CharMenu.update","CharMenu.hx",151,0xc5f39229)
+HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_150_update,"CharMenu","update",0x3164bda2,"CharMenu.update","CharMenu.hx",150,0xc5f39229)
 HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_184_update,"CharMenu","update",0x3164bda2,"CharMenu.update","CharMenu.hx",184,0xc5f39229)
-HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_206_addCharImageOffset,"CharMenu","addCharImageOffset",0x8bf19a10,"CharMenu.addCharImageOffset","CharMenu.hx",206,0xc5f39229)
-HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_213_changeSelection,"CharMenu","changeSelection",0xc6b92603,"CharMenu.changeSelection","CharMenu.hx",213,0xc5f39229)
-HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_246_charCheck,"CharMenu","charCheck",0x99edf019,"CharMenu.charCheck","CharMenu.hx",246,0xc5f39229)
+HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_208_changeSelection,"CharMenu","changeSelection",0xc6b92603,"CharMenu.changeSelection","CharMenu.hx",208,0xc5f39229)
+HX_LOCAL_STACK_FRAME(_hx_pos_413b220edf8d734a_242_charCheck,"CharMenu","charCheck",0x99edf019,"CharMenu.charCheck","CharMenu.hx",242,0xc5f39229)
 
 void CharMenu_obj::__construct( ::flixel::addons::transition::TransitionData TransIn, ::flixel::addons::transition::TransitionData TransOut){
             	HX_STACKFRAME(&_hx_pos_413b220edf8d734a_26_new)
-HXLINE(  62)		this->ifCharsAreUnlocked = ( (::Array< bool >)(::flixel::FlxG_obj::save->data->__Field(HX_("daUnlockedChars",fd,47,3b,d5),::hx::paccDynamic)) );
-HXLINE(  61)		this->doesntExist = false;
-HXLINE(  60)		this->alreadySelected = false;
-HXLINE(  56)		this->imageArray = ::Array_obj< ::Dynamic>::__new(0);
-HXLINE(  51)		this->curSelected = 0;
-HXLINE(  48)		this->sharedImagesFolder = HX_("assets/shared/images/",19,67,ce,1e);
-HXLINE(  47)		this->fontFolder = HX_("assets/fonts/",37,ff,a5,9c);
-HXLINE(  46)		this->backgroundFolder = HX_("background",ee,93,1d,26);
-HXLINE(  43)		this->unlockedOffsets = ( (::Array< ::Dynamic>)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedOffsets",9d,17,7c,17),::hx::paccDynamic)) );
-HXLINE(  42)		this->unlockedCharactersBGs = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedCharsBGs",94,a9,d1,8f),::hx::paccDynamic)) );
-HXLINE(  41)		this->unlockedCharactersNames = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedCharsNames",ae,83,b8,60),::hx::paccDynamic)) );
-HXLINE(  40)		this->unlockedCharacters = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedChars",ba,f9,53,97),::hx::paccDynamic)) );
-HXLINE(  37)		this->unlockableCharsOffsets = ::Array_obj< ::Dynamic>::__new(1)->init(0,::Array_obj< int >::fromData( _hx_array_data_7c6aafb5_1,2));
-HXLINE(  36)		this->unlockableCharsBGs = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_2,1);
-HXLINE(  35)		this->unlockableCharsNames = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_3,1);
-HXLINE(  34)		this->unlockableChars = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_4,1);
-HXLINE(  31)		this->charOffsets = ::Array_obj< ::Dynamic>::__new(3)->init(0,::Array_obj< int >::fromData( _hx_array_data_7c6aafb5_5,2))->init(1,::Array_obj< int >::fromData( _hx_array_data_7c6aafb5_6,2))->init(2,::Array_obj< int >::fromData( _hx_array_data_7c6aafb5_7,2));
-HXLINE(  30)		this->selectableCharactersBGs = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_8,3);
-HXLINE(  29)		this->selectableCharactersNames = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_9,3);
-HXLINE(  28)		this->selectableCharacters = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_10,3);
+HXLINE(  59)		this->ifCharsAreUnlocked = ( (::Array< bool >)(::flixel::FlxG_obj::save->data->__Field(HX_("daUnlockedChars",fd,47,3b,d5),::hx::paccDynamic)) );
+HXLINE(  58)		this->doesntExist = false;
+HXLINE(  57)		this->alreadySelected = false;
+HXLINE(  53)		this->imageArray = ::Array_obj< ::Dynamic>::__new(0);
+HXLINE(  48)		this->curSelected = 0;
+HXLINE(  45)		this->sharedImagesFolder = HX_("assets/shared/images/",19,67,ce,1e);
+HXLINE(  44)		this->fontFolder = HX_("assets/fonts/",37,ff,a5,9c);
+HXLINE(  43)		this->backgroundFolder = HX_("background",ee,93,1d,26);
+HXLINE(  40)		this->unlockedCharactersBGs = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedCharsBGs",94,a9,d1,8f),::hx::paccDynamic)) );
+HXLINE(  39)		this->unlockedCharactersNames = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedCharsNames",ae,83,b8,60),::hx::paccDynamic)) );
+HXLINE(  38)		this->unlockedCharacters = ( (::Array< ::String >)(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedChars",ba,f9,53,97),::hx::paccDynamic)) );
+HXLINE(  35)		this->unlockableCharsBGs = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_1,1);
+HXLINE(  34)		this->unlockableCharsNames = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_2,1);
+HXLINE(  33)		this->unlockableChars = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_3,1);
+HXLINE(  30)		this->selectableCharactersBGs = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_4,3);
+HXLINE(  29)		this->selectableCharactersNames = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_5,3);
+HXLINE(  28)		this->selectableCharacters = ::Array_obj< ::String >::fromData( _hx_array_data_7c6aafb5_6,3);
 HXLINE(  26)		super::__construct(TransIn,TransOut);
             	}
 
@@ -256,384 +237,389 @@ bool CharMenu_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void CharMenu_obj::create(){
-            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_65_create)
-HXLINE(  67)		if (::hx::IsNull( this->ifCharsAreUnlocked )) {
-HXLINE(  69)			this->ifCharsAreUnlocked = ::Array_obj< bool >::fromData( _hx_array_data_7c6aafb5_13,1);
-HXLINE(  70)			::flixel::FlxG_obj::save->data->__SetField(HX_("daUnlockedChars",fd,47,3b,d5),this->ifCharsAreUnlocked,::hx::paccDynamic);
+            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_62_create)
+HXLINE(  64)		if (::hx::IsNull( this->ifCharsAreUnlocked )) {
+HXLINE(  66)			this->ifCharsAreUnlocked = ::Array_obj< bool >::fromData( _hx_array_data_7c6aafb5_9,1);
+HXLINE(  67)			::flixel::FlxG_obj::save->data->__SetField(HX_("daUnlockedChars",fd,47,3b,d5),::cpp::VirtualArray_obj::__new(1)->init(0,false),::hx::paccDynamic);
             		}
-HXLINE(  73)		if (::hx::IsNull( this->unlockedCharacters )) {
-HXLINE(  75)			this->unlockedCharacters = this->selectableCharacters;
-HXLINE(  76)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedChars",ba,f9,53,97),this->unlockedCharacters,::hx::paccDynamic);
+HXLINE(  70)		if (::hx::IsNull( this->unlockedCharacters )) {
+HXLINE(  72)			this->unlockedCharacters = this->selectableCharacters;
+HXLINE(  73)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedChars",ba,f9,53,97),this->selectableCharacters,::hx::paccDynamic);
             		}
-HXLINE(  79)		if (::hx::IsNull( this->unlockedCharactersNames )) {
-HXLINE(  81)			this->unlockedCharactersNames = this->selectableCharactersNames;
-HXLINE(  82)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedCharsNames",ae,83,b8,60),this->unlockedCharactersNames,::hx::paccDynamic);
+HXLINE(  76)		if (::hx::IsNull( this->unlockedCharactersNames )) {
+HXLINE(  78)			this->unlockedCharactersNames = this->selectableCharactersNames;
+HXLINE(  79)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedCharsNames",ae,83,b8,60),this->selectableCharactersNames,::hx::paccDynamic);
             		}
-HXLINE(  85)		if (::hx::IsNull( this->unlockedCharactersBGs )) {
-HXLINE(  87)			this->unlockedCharactersBGs = this->selectableCharactersBGs;
-HXLINE(  88)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedCharsBGs",94,a9,d1,8f),this->unlockedCharactersBGs,::hx::paccDynamic);
+HXLINE(  82)		if (::hx::IsNull( this->unlockedCharactersBGs )) {
+HXLINE(  84)			this->unlockedCharactersBGs = this->selectableCharactersBGs;
+HXLINE(  85)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedCharsBGs",94,a9,d1,8f),this->selectableCharactersBGs,::hx::paccDynamic);
             		}
-HXLINE(  91)		if (::hx::IsNull( this->unlockedOffsets )) {
-HXLINE(  93)			this->unlockedOffsets = this->charOffsets;
-HXLINE(  94)			::flixel::FlxG_obj::save->data->__SetField(HX_("unlockedOffests",79,ba,45,0e),this->unlockedOffsets,::hx::paccDynamic);
-            		}
-HXLINE(  98)		 ::flixel::FlxSprite _hx_tmp =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
-HXDLIN(  98)		 ::flixel::graphics::FlxGraphic returnAsset = ::Paths_obj::returnGraphic(this->unlockedCharactersBGs->__get(this->curSelected),this->backgroundFolder);
-HXDLIN(  98)		this->menuBG = _hx_tmp->loadGraphic(returnAsset,null(),null(),null(),null(),null());
-HXLINE(  99)		 ::flixel::FlxSprite _hx_tmp1 = this->menuBG;
-HXDLIN(  99)		_hx_tmp1->setGraphicSize(::Std_obj::_hx_int((this->menuBG->get_width() * ((Float)1.1))),null());
-HXLINE( 100)		this->menuBG->updateHitbox();
-HXLINE( 101)		{
-HXLINE( 101)			 ::flixel::FlxSprite _this = this->menuBG;
-HXDLIN( 101)			int axes = 17;
-HXDLIN( 101)			bool _hx_tmp2;
-HXDLIN( 101)			if ((axes != 1)) {
-HXLINE( 101)				_hx_tmp2 = (axes == 17);
+HXLINE(  88)		this->unlockedCharacters[0] = ( (::String)(::PlayState_obj::SONG->__Field(HX_("player1",b0,09,15,8a),::hx::paccDynamic)) );
+HXLINE(  89)		 ::Dynamic(::flixel::FlxG_obj::save->data->__Field(HX_("unlockedChars",ba,f9,53,97),::hx::paccDynamic))->__SetItem(0, ::Dynamic(::PlayState_obj::SONG->__Field(HX_("player1",b0,09,15,8a),::hx::paccDynamic)));
+HXLINE(  92)		 ::flixel::FlxSprite _hx_tmp =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXDLIN(  92)		 ::flixel::graphics::FlxGraphic returnAsset = ::Paths_obj::returnGraphic(this->unlockedCharactersBGs->__get(this->curSelected),this->backgroundFolder);
+HXDLIN(  92)		this->menuBG = _hx_tmp->loadGraphic(returnAsset,null(),null(),null(),null(),null());
+HXLINE(  93)		 ::flixel::FlxSprite _hx_tmp1 = this->menuBG;
+HXDLIN(  93)		_hx_tmp1->setGraphicSize(::Std_obj::_hx_int((this->menuBG->get_width() * ((Float)1.1))),null());
+HXLINE(  94)		this->menuBG->updateHitbox();
+HXLINE(  95)		{
+HXLINE(  95)			 ::flixel::FlxSprite _this = this->menuBG;
+HXDLIN(  95)			int axes = 17;
+HXDLIN(  95)			bool _hx_tmp2;
+HXDLIN(  95)			if ((axes != 1)) {
+HXLINE(  95)				_hx_tmp2 = (axes == 17);
             			}
             			else {
-HXLINE( 101)				_hx_tmp2 = true;
+HXLINE(  95)				_hx_tmp2 = true;
             			}
-HXDLIN( 101)			if (_hx_tmp2) {
-HXLINE( 101)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 101)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
+HXDLIN(  95)			if (_hx_tmp2) {
+HXLINE(  95)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN(  95)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 101)			bool _hx_tmp3;
-HXDLIN( 101)			if ((axes != 16)) {
-HXLINE( 101)				_hx_tmp3 = (axes == 17);
+HXDLIN(  95)			bool _hx_tmp3;
+HXDLIN(  95)			if ((axes != 16)) {
+HXLINE(  95)				_hx_tmp3 = (axes == 17);
             			}
             			else {
-HXLINE( 101)				_hx_tmp3 = true;
+HXLINE(  95)				_hx_tmp3 = true;
             			}
-HXDLIN( 101)			if (_hx_tmp3) {
-HXLINE( 101)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 101)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
+HXDLIN(  95)			if (_hx_tmp3) {
+HXLINE(  95)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN(  95)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE( 102)		this->menuBG->set_antialiasing(true);
-HXLINE( 103)		this->add(this->menuBG);
-HXLINE( 104)		this->grpMenu =  ::flixel::group::FlxTypedGroup_obj::__alloc( HX_CTX ,null());
-HXLINE( 105)		this->add(this->grpMenu);
-HXLINE( 106)		this->grpMenuImages =  ::flixel::group::FlxTypedGroup_obj::__alloc( HX_CTX ,null());
-HXLINE( 107)		this->add(this->grpMenuImages);
-HXLINE( 110)		{
-HXLINE( 110)			int _g = 0;
-HXDLIN( 110)			int _g1 = this->unlockedCharacters->length;
-HXDLIN( 110)			while((_g < _g1)){
-HXLINE( 110)				_g = (_g + 1);
-HXDLIN( 110)				int i = (_g - 1);
-HXLINE( 112)				 ::Alphabet characterText =  ::Alphabet_obj::__alloc( HX_CTX ,( (Float)(170) ),( (Float)(((70 * i) + 230)) ),this->unlockedCharacters->__get(i),true);
-HXLINE( 113)				characterText->isMenuItem = true;
-HXLINE( 114)				characterText->targetY = i;
-HXLINE( 115)				this->grpMenu->add(characterText).StaticCast<  ::Alphabet >();
-HXLINE( 117)				 ::Boyfriend characterImage =  ::Boyfriend_obj::__alloc( HX_CTX ,( (Float)(0) ),( (Float)(0) ),this->unlockedCharacters->__get(i));
-HXLINE( 118)				{
-HXLINE( 118)					 ::flixel::math::FlxBasePoint this1 = characterImage->scale;
-HXDLIN( 118)					this1->set_x(((Float)0.8));
-HXDLIN( 118)					this1->set_y(((Float)0.8));
+HXLINE(  96)		this->menuBG->set_antialiasing(true);
+HXLINE(  97)		this->add(this->menuBG);
+HXLINE(  98)		this->grpMenu =  ::flixel::group::FlxTypedGroup_obj::__alloc( HX_CTX ,null());
+HXLINE(  99)		this->add(this->grpMenu);
+HXLINE( 100)		this->grpMenuImages =  ::flixel::group::FlxTypedGroup_obj::__alloc( HX_CTX ,null());
+HXLINE( 101)		this->add(this->grpMenuImages);
+HXLINE( 104)		{
+HXLINE( 104)			int _g = 0;
+HXDLIN( 104)			int _g1 = this->unlockedCharacters->length;
+HXDLIN( 104)			while((_g < _g1)){
+HXLINE( 104)				_g = (_g + 1);
+HXDLIN( 104)				int i = (_g - 1);
+HXLINE( 106)				 ::Alphabet characterText =  ::Alphabet_obj::__alloc( HX_CTX ,( (Float)(170) ),( (Float)(((70 * i) + 230)) ),this->unlockedCharacters->__get(i),true);
+HXLINE( 107)				characterText->isMenuItem = true;
+HXLINE( 108)				characterText->targetY = i;
+HXLINE( 109)				this->grpMenu->add(characterText).StaticCast<  ::Alphabet >();
+HXLINE( 111)				 ::Boyfriend characterImage =  ::Boyfriend_obj::__alloc( HX_CTX ,( (Float)(0) ),( (Float)(0) ),this->unlockedCharacters->__get(i));
+HXLINE( 112)				{
+HXLINE( 112)					 ::flixel::math::FlxBasePoint this1 = characterImage->scale;
+HXDLIN( 112)					this1->set_x(((Float)0.8));
+HXDLIN( 112)					this1->set_y(((Float)0.8));
             				}
-HXLINE( 119)				this->addCharImageOffset(characterImage,this->unlockedOffsets->__get(i).StaticCast< ::Array< int > >()->__get(0),this->unlockedOffsets->__get(i).StaticCast< ::Array< int > >()->__get(1));
-HXLINE( 122)				{
-HXLINE( 122)					int axes = 17;
-HXDLIN( 122)					bool _hx_tmp;
-HXDLIN( 122)					if ((axes != 1)) {
-HXLINE( 122)						_hx_tmp = (axes == 17);
+HXLINE( 121)				{
+HXLINE( 121)					int axes = 17;
+HXDLIN( 121)					bool _hx_tmp;
+HXDLIN( 121)					if ((axes != 1)) {
+HXLINE( 121)						_hx_tmp = (axes == 17);
             					}
             					else {
-HXLINE( 122)						_hx_tmp = true;
+HXLINE( 121)						_hx_tmp = true;
             					}
-HXDLIN( 122)					if (_hx_tmp) {
-HXLINE( 122)						int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 122)						characterImage->set_x(((( (Float)(_hx_tmp) ) - characterImage->get_width()) / ( (Float)(2) )));
+HXDLIN( 121)					if (_hx_tmp) {
+HXLINE( 121)						int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 121)						characterImage->set_x(((( (Float)(_hx_tmp) ) - characterImage->get_width()) / ( (Float)(2) )));
             					}
-HXDLIN( 122)					bool _hx_tmp1;
-HXDLIN( 122)					if ((axes != 16)) {
-HXLINE( 122)						_hx_tmp1 = (axes == 17);
+HXDLIN( 121)					bool _hx_tmp1;
+HXDLIN( 121)					if ((axes != 16)) {
+HXLINE( 121)						_hx_tmp1 = (axes == 17);
             					}
             					else {
-HXLINE( 122)						_hx_tmp1 = true;
+HXLINE( 121)						_hx_tmp1 = true;
             					}
-HXDLIN( 122)					if (_hx_tmp1) {
-HXLINE( 122)						int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 122)						characterImage->set_y(((( (Float)(_hx_tmp) ) - characterImage->get_height()) / ( (Float)(2) )));
+HXDLIN( 121)					if (_hx_tmp1) {
+HXLINE( 121)						int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 121)						characterImage->set_y(((( (Float)(_hx_tmp) ) - characterImage->get_height()) / ( (Float)(2) )));
             					}
             				}
-HXLINE( 123)				this->imageArray->push(characterImage);
-HXLINE( 124)				this->add(characterImage);
+HXLINE( 122)				this->imageArray->push(characterImage);
+HXLINE( 123)				this->add(characterImage);
             			}
             		}
-HXLINE( 128)		 ::Alphabet selectionHeader =  ::Alphabet_obj::__alloc( HX_CTX ,( (Float)(0) ),( (Float)(50) ),HX_("Character Select",d3,1e,ae,df),true);
-HXLINE( 129)		{
-HXLINE( 129)			int axes1 = 1;
-HXDLIN( 129)			bool _hx_tmp4;
-HXDLIN( 129)			if ((axes1 != 1)) {
-HXLINE( 129)				_hx_tmp4 = (axes1 == 17);
+HXLINE( 127)		 ::Alphabet selectionHeader =  ::Alphabet_obj::__alloc( HX_CTX ,( (Float)(0) ),( (Float)(50) ),HX_("Character Select",d3,1e,ae,df),true);
+HXLINE( 128)		{
+HXLINE( 128)			int axes1 = 1;
+HXDLIN( 128)			bool _hx_tmp4;
+HXDLIN( 128)			if ((axes1 != 1)) {
+HXLINE( 128)				_hx_tmp4 = (axes1 == 17);
             			}
             			else {
-HXLINE( 129)				_hx_tmp4 = true;
+HXLINE( 128)				_hx_tmp4 = true;
             			}
-HXDLIN( 129)			if (_hx_tmp4) {
-HXLINE( 129)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 129)				selectionHeader->set_x(((( (Float)(_hx_tmp) ) - selectionHeader->get_width()) / ( (Float)(2) )));
+HXDLIN( 128)			if (_hx_tmp4) {
+HXLINE( 128)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 128)				selectionHeader->set_x(((( (Float)(_hx_tmp) ) - selectionHeader->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 129)			bool _hx_tmp5;
-HXDLIN( 129)			if ((axes1 != 16)) {
-HXLINE( 129)				_hx_tmp5 = (axes1 == 17);
+HXDLIN( 128)			bool _hx_tmp5;
+HXDLIN( 128)			if ((axes1 != 16)) {
+HXLINE( 128)				_hx_tmp5 = (axes1 == 17);
             			}
             			else {
-HXLINE( 129)				_hx_tmp5 = true;
+HXLINE( 128)				_hx_tmp5 = true;
             			}
-HXDLIN( 129)			if (_hx_tmp5) {
-HXLINE( 129)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 129)				selectionHeader->set_y(((( (Float)(_hx_tmp) ) - selectionHeader->get_height()) / ( (Float)(2) )));
+HXDLIN( 128)			if (_hx_tmp5) {
+HXLINE( 128)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 128)				selectionHeader->set_y(((( (Float)(_hx_tmp) ) - selectionHeader->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE( 130)		this->add(selectionHeader);
-HXLINE( 133)		 ::flixel::FlxSprite arrows =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
-HXDLIN( 133)		 ::flixel::graphics::FlxGraphic returnAsset1 = ::Paths_obj::returnGraphic(HX_("arrowSelection",43,5d,9f,8d),this->backgroundFolder);
-HXDLIN( 133)		 ::flixel::FlxSprite arrows1 = arrows->loadGraphic(returnAsset1,null(),null(),null(),null(),null());
-HXLINE( 134)		arrows1->setGraphicSize(::Std_obj::_hx_int((arrows1->get_width() * ((Float)1.1))),null());
-HXLINE( 135)		{
-HXLINE( 135)			int axes2 = 17;
-HXDLIN( 135)			bool _hx_tmp6;
-HXDLIN( 135)			if ((axes2 != 1)) {
-HXLINE( 135)				_hx_tmp6 = (axes2 == 17);
+HXLINE( 129)		this->add(selectionHeader);
+HXLINE( 132)		 ::flixel::FlxSprite arrows =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXDLIN( 132)		 ::flixel::graphics::FlxGraphic returnAsset1 = ::Paths_obj::returnGraphic(HX_("arrowSelection",43,5d,9f,8d),this->backgroundFolder);
+HXDLIN( 132)		 ::flixel::FlxSprite arrows1 = arrows->loadGraphic(returnAsset1,null(),null(),null(),null(),null());
+HXLINE( 133)		arrows1->setGraphicSize(::Std_obj::_hx_int((arrows1->get_width() * ((Float)1.1))),null());
+HXLINE( 134)		{
+HXLINE( 134)			int axes2 = 17;
+HXDLIN( 134)			bool _hx_tmp6;
+HXDLIN( 134)			if ((axes2 != 1)) {
+HXLINE( 134)				_hx_tmp6 = (axes2 == 17);
             			}
             			else {
-HXLINE( 135)				_hx_tmp6 = true;
+HXLINE( 134)				_hx_tmp6 = true;
             			}
-HXDLIN( 135)			if (_hx_tmp6) {
-HXLINE( 135)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 135)				arrows1->set_x(((( (Float)(_hx_tmp) ) - arrows1->get_width()) / ( (Float)(2) )));
+HXDLIN( 134)			if (_hx_tmp6) {
+HXLINE( 134)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 134)				arrows1->set_x(((( (Float)(_hx_tmp) ) - arrows1->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 135)			bool _hx_tmp7;
-HXDLIN( 135)			if ((axes2 != 16)) {
-HXLINE( 135)				_hx_tmp7 = (axes2 == 17);
+HXDLIN( 134)			bool _hx_tmp7;
+HXDLIN( 134)			if ((axes2 != 16)) {
+HXLINE( 134)				_hx_tmp7 = (axes2 == 17);
             			}
             			else {
-HXLINE( 135)				_hx_tmp7 = true;
+HXLINE( 134)				_hx_tmp7 = true;
             			}
-HXDLIN( 135)			if (_hx_tmp7) {
-HXLINE( 135)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 135)				arrows1->set_y(((( (Float)(_hx_tmp) ) - arrows1->get_height()) / ( (Float)(2) )));
+HXDLIN( 134)			if (_hx_tmp7) {
+HXLINE( 134)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 134)				arrows1->set_y(((( (Float)(_hx_tmp) ) - arrows1->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE( 136)		arrows1->set_antialiasing(true);
-HXLINE( 137)		this->add(arrows1);
-HXLINE( 140)		this->selectedCharName =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,(( (Float)(::flixel::FlxG_obj::width) ) * ((Float)0.7)),10,0,HX_("",00,00,00,00),32,null());
-HXLINE( 141)		this->selectedCharName->setFormat((this->fontFolder + HX_("vcr.ttf",9d,d2,a7,82)),32,-1,HX_("right",dc,0b,64,e9),null(),null(),null());
-HXLINE( 142)		this->selectedCharName->set_alpha(((Float)0.7));
-HXLINE( 143)		this->add(this->selectedCharName);
-HXLINE( 145)		this->changeSelection(null());
-HXLINE( 146)		this->set_cameras(::Array_obj< ::Dynamic>::__new(1)->init(0,::flixel::FlxG_obj::cameras->list->__get((::flixel::FlxG_obj::cameras->list->length - 1)).StaticCast<  ::flixel::FlxCamera >()));
-HXLINE( 147)		this->super::create();
+HXLINE( 135)		arrows1->set_antialiasing(true);
+HXLINE( 136)		this->add(arrows1);
+HXLINE( 139)		this->selectedCharName =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,(( (Float)(::flixel::FlxG_obj::width) ) * ((Float)0.7)),10,0,HX_("",00,00,00,00),32,null());
+HXLINE( 140)		this->selectedCharName->setFormat((this->fontFolder + HX_("vcr.ttf",9d,d2,a7,82)),32,-1,HX_("right",dc,0b,64,e9),null(),null(),null());
+HXLINE( 141)		this->selectedCharName->set_alpha(((Float)0.7));
+HXLINE( 142)		this->add(this->selectedCharName);
+HXLINE( 144)		this->changeSelection(null());
+HXLINE( 145)		this->set_cameras(::Array_obj< ::Dynamic>::__new(1)->init(0,::flixel::FlxG_obj::cameras->list->__get((::flixel::FlxG_obj::cameras->list->length - 1)).StaticCast<  ::flixel::FlxCamera >()));
+HXLINE( 146)		this->super::create();
             	}
 
 
 void CharMenu_obj::update(Float elapsed){
-            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_151_update)
-HXLINE( 152)		 ::flixel::text::FlxText _hx_tmp = this->selectedCharName;
-HXDLIN( 152)		_hx_tmp->set_text(this->unlockedCharactersNames->__get(this->curSelected).toUpperCase());
-HXLINE( 153)		 ::flixel::text::FlxText _hx_tmp1 = this->selectedCharName;
-HXDLIN( 153)		int _hx_tmp2 = ::flixel::FlxG_obj::width;
-HXDLIN( 153)		_hx_tmp1->set_x((( (Float)(_hx_tmp2) ) - (this->selectedCharName->get_width() + 10)));
-HXLINE( 154)		if ((this->selectedCharName->text == HX_("",00,00,00,00))) {
-HXLINE( 156)			::haxe::Log_obj::trace(HX_("",00,00,00,00),::hx::SourceInfo(HX_("source/CharMenu.hx",b5,bf,bd,11),156,HX_("CharMenu",b5,af,6a,7c),HX_("update",09,86,05,87)));
-HXLINE( 157)			this->selectedCharName->set_text(HX_("",00,00,00,00));
+            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_150_update)
+HXLINE( 151)		 ::flixel::text::FlxText _hx_tmp = this->selectedCharName;
+HXDLIN( 151)		_hx_tmp->set_text(this->unlockedCharactersNames->__get(this->curSelected).toUpperCase());
+HXLINE( 152)		 ::flixel::text::FlxText _hx_tmp1 = this->selectedCharName;
+HXDLIN( 152)		int _hx_tmp2 = ::flixel::FlxG_obj::width;
+HXDLIN( 152)		_hx_tmp1->set_x((( (Float)(_hx_tmp2) ) - (this->selectedCharName->get_width() + 10)));
+HXLINE( 153)		if ((this->selectedCharName->text == HX_("",00,00,00,00))) {
+HXLINE( 155)			::haxe::Log_obj::trace(HX_("",00,00,00,00),::hx::SourceInfo(HX_("source/CharMenu.hx",b5,bf,bd,11),155,HX_("CharMenu",b5,af,6a,7c),HX_("update",09,86,05,87)));
+HXLINE( 156)			this->selectedCharName->set_text(HX_("",00,00,00,00));
             		}
-HXLINE( 161)		bool leftPress = ::PlayerSettings_obj::player1->controls->_ui_leftP->check();
-HXLINE( 163)		bool rightPress = ::PlayerSettings_obj::player1->controls->_ui_rightP->check();
-HXLINE( 165)		bool accepted = ::PlayerSettings_obj::player1->controls->_accept->check();
-HXLINE( 166)		bool goBack = ::PlayerSettings_obj::player1->controls->_back->check();
-HXLINE( 168)		if (!(this->alreadySelected)) {
-HXLINE( 170)			if (leftPress) {
-HXLINE( 171)				this->changeSelection(-1);
+HXLINE( 160)		bool leftPress = ::PlayerSettings_obj::player1->controls->_ui_leftP->check();
+HXLINE( 162)		bool rightPress = ::PlayerSettings_obj::player1->controls->_ui_rightP->check();
+HXLINE( 164)		bool accepted = ::PlayerSettings_obj::player1->controls->_accept->check();
+HXLINE( 165)		bool goBack = ::PlayerSettings_obj::player1->controls->_back->check();
+HXLINE( 167)		if (!(this->alreadySelected)) {
+HXLINE( 169)			if (leftPress) {
+HXLINE( 170)				this->changeSelection(-1);
             			}
-HXLINE( 172)			if (rightPress) {
-HXLINE( 173)				this->changeSelection(1);
+HXLINE( 171)			if (rightPress) {
+HXLINE( 172)				this->changeSelection(1);
             			}
-HXLINE( 174)			if (accepted) {
+HXLINE( 173)			if (accepted) {
             				HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_0) HXARGC(1)
             				void _hx_run( ::flixel::util::FlxTimer tmr){
             					HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_184_update)
-HXLINE( 184)					::MusicBeatState_obj::switchState(::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),false));
+HXLINE( 184)					 ::flixel::FlxState nextState =  ::PlayState_obj::__alloc( HX_CTX ,null(),null());
+HXDLIN( 184)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 184)						::flixel::FlxG_obj::game->_requestedState = nextState;
+            					}
             				}
             				HX_END_LOCAL_FUNC1((void))
 
-HXLINE( 176)				this->alreadySelected = true;
-HXLINE( 177)				::String daSelected = this->unlockedCharacters->__get(this->curSelected);
-HXLINE( 178)				if ((this->unlockedCharacters->__get(this->curSelected) != HX_("bf",c4,55,00,00))) {
-HXLINE( 179)					::PlayState_obj::SONG->__SetField(HX_("player1",b0,09,15,8a),daSelected,::hx::paccDynamic);
+HXLINE( 175)				this->alreadySelected = true;
+HXLINE( 176)				::String daSelected = this->unlockedCharacters->__get(this->curSelected);
+HXLINE( 177)				if (::hx::IsNotEq( this->unlockedCharacters->__get(this->curSelected),::PlayState_obj::SONG->__Field(HX_("player1",b0,09,15,8a),::hx::paccDynamic) )) {
+HXLINE( 178)					::PlayState_obj::SONG->__SetField(HX_("player1",b0,09,15,8a),daSelected,::hx::paccDynamic);
             				}
-HXLINE( 181)				::flixel::effects::FlxFlicker_obj::flicker(this->imageArray->__get(this->curSelected).StaticCast<  ::Boyfriend >(),0,null(),null(),null(),null(),null());
-HXLINE( 182)				 ::flixel::util::FlxTimer_obj::__alloc( HX_CTX ,null())->start(1, ::Dynamic(new _hx_Closure_0()),null());
+HXLINE( 180)				::flixel::effects::FlxFlicker_obj::flicker(this->imageArray->__get(this->curSelected).StaticCast<  ::Boyfriend >(),0,null(),null(),null(),null(),null());
+HXLINE( 181)				 ::flixel::util::FlxTimer_obj::__alloc( HX_CTX ,null())->start(1, ::Dynamic(new _hx_Closure_0()),null());
             			}
 HXLINE( 187)			if (goBack) {
 HXLINE( 189)				if (::PlayState_obj::isStoryMode) {
-HXLINE( 190)					 ::flixel::FlxState nextState =  ::StoryMenuState_obj::__alloc( HX_CTX ,null(),null());
-HXDLIN( 190)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 190)						::flixel::FlxG_obj::game->_requestedState = nextState;
+HXLINE( 191)					 ::flixel::FlxState nextState =  ::StoryMenuState_obj::__alloc( HX_CTX ,null(),null());
+HXDLIN( 191)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 191)						::flixel::FlxG_obj::game->_requestedState = nextState;
             					}
             				}
             				else {
-HXLINE( 192)					 ::flixel::FlxState nextState =  ::FreeplayState_obj::__alloc( HX_CTX ,null(),null());
-HXDLIN( 192)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 192)						::flixel::FlxG_obj::game->_requestedState = nextState;
+HXLINE( 194)					 ::flixel::FlxState nextState =  ::FreeplayState_obj::__alloc( HX_CTX ,null(),null());
+HXDLIN( 194)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 194)						::flixel::FlxG_obj::game->_requestedState = nextState;
             					}
             				}
             			}
-HXLINE( 195)			{
-HXLINE( 195)				int _g = 0;
-HXDLIN( 195)				int _g1 = this->imageArray->length;
-HXDLIN( 195)				while((_g < _g1)){
-HXLINE( 195)					_g = (_g + 1);
-HXDLIN( 195)					int i = (_g - 1);
-HXLINE( 197)					this->imageArray->__get(i).StaticCast<  ::Boyfriend >()->dance();
+HXLINE( 197)			{
+HXLINE( 197)				int _g = 0;
+HXDLIN( 197)				int _g1 = this->imageArray->length;
+HXDLIN( 197)				while((_g < _g1)){
+HXLINE( 197)					_g = (_g + 1);
+HXDLIN( 197)					int i = (_g - 1);
+HXLINE( 199)					this->imageArray->__get(i).StaticCast<  ::Boyfriend >()->dance();
             				}
             			}
-HXLINE( 200)			this->super::update(elapsed);
+HXLINE( 202)			this->super::update(elapsed);
             		}
             	}
 
-
-void CharMenu_obj::addCharImageOffset( ::Boyfriend image,int xOffset,int yOffset){
-            	HX_STACKFRAME(&_hx_pos_413b220edf8d734a_206_addCharImageOffset)
-HXLINE( 207)		{
-HXLINE( 207)			 ::Boyfriend _g = image;
-HXDLIN( 207)			_g->set_x((_g->x + xOffset));
-            		}
-HXLINE( 208)		{
-HXLINE( 208)			 ::Boyfriend _g1 = image;
-HXDLIN( 208)			_g1->set_y((_g1->y + yOffset));
-            		}
-            	}
-
-
-HX_DEFINE_DYNAMIC_FUNC3(CharMenu_obj,addCharImageOffset,(void))
 
 void CharMenu_obj::changeSelection(::hx::Null< int >  __o_changeAmount){
             		int changeAmount = __o_changeAmount.Default(0);
-            	HX_STACKFRAME(&_hx_pos_413b220edf8d734a_213_changeSelection)
-HXLINE( 214)		 ::CharMenu _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
-HXDLIN( 214)		_hx_tmp->curSelected = (_hx_tmp->curSelected + changeAmount);
-HXLINE( 215)		if ((this->curSelected < 0)) {
-HXLINE( 216)			this->curSelected = (this->unlockedCharacters->length - 1);
+            	HX_STACKFRAME(&_hx_pos_413b220edf8d734a_208_changeSelection)
+HXLINE( 209)		 ::CharMenu _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
+HXDLIN( 209)		_hx_tmp->curSelected = (_hx_tmp->curSelected + changeAmount);
+HXLINE( 210)		if ((this->curSelected < 0)) {
+HXLINE( 211)			this->curSelected = (this->unlockedCharacters->length - 1);
             		}
-HXLINE( 217)		if ((this->curSelected >= this->unlockedCharacters->length)) {
-HXLINE( 218)			this->curSelected = 0;
+HXLINE( 212)		if ((this->curSelected >= this->unlockedCharacters->length)) {
+HXLINE( 213)			this->curSelected = 0;
             		}
-HXLINE( 220)		{
-HXLINE( 220)			int _g = 0;
-HXDLIN( 220)			int _g1 = this->imageArray->length;
-HXDLIN( 220)			while((_g < _g1)){
-HXLINE( 220)				_g = (_g + 1);
-HXDLIN( 220)				int i = (_g - 1);
-HXLINE( 222)				this->imageArray->__get(i).StaticCast<  ::Boyfriend >()->set_alpha(( (Float)(0) ));
+HXLINE( 215)		{
+HXLINE( 215)			int _g = 0;
+HXDLIN( 215)			int _g1 = this->imageArray->length;
+HXDLIN( 215)			while((_g < _g1)){
+HXLINE( 215)				_g = (_g + 1);
+HXDLIN( 215)				int i = (_g - 1);
+HXLINE( 217)				this->imageArray->__get(i).StaticCast<  ::Boyfriend >()->set_alpha(((Float)0.6));
+HXLINE( 218)				this->imageArray->__get(i).StaticCast<  ::Boyfriend >()->set_x((((( (Float)(::flixel::FlxG_obj::width) ) / ( (Float)(2) )) + (((i - this->curSelected) - 1) * 350)) + 125));
             			}
             		}
-HXLINE( 224)		this->imageArray->__get(this->curSelected).StaticCast<  ::Boyfriend >()->set_alpha(( (Float)(1) ));
-HXLINE( 226)		int tempInt = 0;
-HXLINE( 228)		{
-HXLINE( 228)			int _g2 = 0;
-HXDLIN( 228)			::Array< ::Dynamic> _g3 = this->grpMenu->members;
-HXDLIN( 228)			while((_g2 < _g3->length)){
-HXLINE( 228)				 ::Alphabet item = _g3->__get(_g2).StaticCast<  ::Alphabet >();
-HXDLIN( 228)				_g2 = (_g2 + 1);
-HXLINE( 230)				item->targetY = (tempInt - this->curSelected);
-HXLINE( 231)				tempInt = (tempInt + 1);
-HXLINE( 233)				item->set_alpha(( (Float)(0) ));
-HXLINE( 235)				bool _hx_tmp = (item->targetY == 0);
+HXLINE( 220)		this->imageArray->__get(this->curSelected).StaticCast<  ::Boyfriend >()->set_alpha(( (Float)(1) ));
+HXLINE( 222)		int tempInt = 0;
+HXLINE( 224)		{
+HXLINE( 224)			int _g2 = 0;
+HXDLIN( 224)			::Array< ::Dynamic> _g3 = this->grpMenu->members;
+HXDLIN( 224)			while((_g2 < _g3->length)){
+HXLINE( 224)				 ::Alphabet item = _g3->__get(_g2).StaticCast<  ::Alphabet >();
+HXDLIN( 224)				_g2 = (_g2 + 1);
+HXLINE( 226)				item->targetY = (tempInt - this->curSelected);
+HXLINE( 227)				tempInt = (tempInt + 1);
+HXLINE( 229)				item->set_alpha(( (Float)(0) ));
+HXLINE( 231)				bool _hx_tmp = (item->targetY == 0);
             			}
             		}
-HXLINE( 241)		this->charCheck();
+HXLINE( 237)		this->charCheck();
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC1(CharMenu_obj,changeSelection,(void))
 
 void CharMenu_obj::charCheck(){
-            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_246_charCheck)
-HXLINE( 247)		this->doesntExist = false;
-HXLINE( 248)		this->remove(this->icon,null());
-HXLINE( 250)		this->menuBG->loadGraphic(this->unlockedCharactersBGs->__get(this->curSelected),null(),null(),null(),null(),null());
-HXLINE( 252)		this->doesntExist = true;
-HXLINE( 254)		 ::flixel::FlxSprite barBG =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,0,(( (Float)(::flixel::FlxG_obj::height) ) * ((Float)0.9)),null());
-HXDLIN( 254)		 ::flixel::FlxSprite barBG1 = barBG->loadGraphic((this->sharedImagesFolder + HX_("healthBar.png",52,4f,de,4f)),null(),null(),null(),null(),null());
-HXLINE( 255)		{
-HXLINE( 255)			int axes = 1;
-HXDLIN( 255)			bool _hx_tmp;
-HXDLIN( 255)			if ((axes != 1)) {
-HXLINE( 255)				_hx_tmp = (axes == 17);
+            	HX_GC_STACKFRAME(&_hx_pos_413b220edf8d734a_242_charCheck)
+HXLINE( 243)		this->doesntExist = false;
+HXLINE( 244)		this->remove(this->icon,null());
+HXLINE( 246)		 ::flixel::FlxSprite _hx_tmp = this->menuBG;
+HXDLIN( 246)		 ::flixel::graphics::FlxGraphic returnAsset = ::Paths_obj::returnGraphic(this->unlockedCharactersBGs->__get(this->curSelected),this->backgroundFolder);
+HXDLIN( 246)		_hx_tmp->loadGraphic(returnAsset,null(),null(),null(),null(),null());
+HXLINE( 248)		this->doesntExist = true;
+HXLINE( 250)		 ::flixel::FlxSprite barBG =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,0,(( (Float)(::flixel::FlxG_obj::height) ) * ((Float)0.9)),null());
+HXDLIN( 250)		 ::flixel::FlxSprite barBG1 = barBG->loadGraphic((this->sharedImagesFolder + HX_("healthBar.png",52,4f,de,4f)),null(),null(),null(),null(),null());
+HXLINE( 251)		{
+HXLINE( 251)			int axes = 1;
+HXDLIN( 251)			bool _hx_tmp1;
+HXDLIN( 251)			if ((axes != 1)) {
+HXLINE( 251)				_hx_tmp1 = (axes == 17);
             			}
             			else {
-HXLINE( 255)				_hx_tmp = true;
+HXLINE( 251)				_hx_tmp1 = true;
             			}
-HXDLIN( 255)			if (_hx_tmp) {
-HXLINE( 255)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 255)				barBG1->set_x(((( (Float)(_hx_tmp) ) - barBG1->get_width()) / ( (Float)(2) )));
+HXDLIN( 251)			if (_hx_tmp1) {
+HXLINE( 251)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 251)				barBG1->set_x(((( (Float)(_hx_tmp) ) - barBG1->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 255)			bool _hx_tmp1;
-HXDLIN( 255)			if ((axes != 16)) {
-HXLINE( 255)				_hx_tmp1 = (axes == 17);
-            			}
-            			else {
-HXLINE( 255)				_hx_tmp1 = true;
-            			}
-HXDLIN( 255)			if (_hx_tmp1) {
-HXLINE( 255)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 255)				barBG1->set_y(((( (Float)(_hx_tmp) ) - barBG1->get_height()) / ( (Float)(2) )));
-            			}
-            		}
-HXLINE( 256)		{
-HXLINE( 256)			 ::flixel::math::FlxBasePoint this1 = barBG1->scrollFactor;
-HXDLIN( 256)			this1->set_x(( (Float)(0) ));
-HXDLIN( 256)			this1->set_y(( (Float)(0) ));
-            		}
-HXLINE( 257)		barBG1->set_visible(false);
-HXLINE( 258)		this->add(barBG1);
-HXLINE( 260)		Float bar = (barBG1->x + 4);
-HXDLIN( 260)		Float bar1 = (barBG1->y + 4);
-HXDLIN( 260)		int bar2 = ::Std_obj::_hx_int((barBG1->get_width() - ( (Float)(8) )));
-HXDLIN( 260)		 ::flixel::ui::FlxBar bar3 =  ::flixel::ui::FlxBar_obj::__alloc( HX_CTX ,bar,bar1,::flixel::ui::FlxBarFillDirection_obj::RIGHT_TO_LEFT_dyn(),bar2,::Std_obj::_hx_int((barBG1->get_height() - ( (Float)(8) ))),::hx::ObjectPtr<OBJ_>(this),HX_("health",9c,28,06,fd),0,2,null());
-HXLINE( 261)		{
-HXLINE( 261)			 ::flixel::math::FlxBasePoint this2 = bar3->scrollFactor;
-HXDLIN( 261)			this2->set_x(( (Float)(0) ));
-HXDLIN( 261)			this2->set_y(( (Float)(0) ));
-            		}
-HXLINE( 262)		bar3->createFilledBar(-65536,-10027213,null(),null());
-HXLINE( 263)		bar3->set_visible(false);
-HXLINE( 264)		this->add(bar3);
-HXLINE( 266)		this->icon =  ::HealthIcon_obj::__alloc( HX_CTX ,this->unlockedCharacters->__get(this->curSelected),true);
-HXLINE( 267)		{
-HXLINE( 267)			 ::HealthIcon _this = this->icon;
-HXDLIN( 267)			int axes1 = 1;
-HXDLIN( 267)			bool _hx_tmp2;
-HXDLIN( 267)			if ((axes1 != 1)) {
-HXLINE( 267)				_hx_tmp2 = (axes1 == 17);
+HXDLIN( 251)			bool _hx_tmp2;
+HXDLIN( 251)			if ((axes != 16)) {
+HXLINE( 251)				_hx_tmp2 = (axes == 17);
             			}
             			else {
-HXLINE( 267)				_hx_tmp2 = true;
+HXLINE( 251)				_hx_tmp2 = true;
             			}
-HXDLIN( 267)			if (_hx_tmp2) {
-HXLINE( 267)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 267)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
-            			}
-HXDLIN( 267)			bool _hx_tmp3;
-HXDLIN( 267)			if ((axes1 != 16)) {
-HXLINE( 267)				_hx_tmp3 = (axes1 == 17);
-            			}
-            			else {
-HXLINE( 267)				_hx_tmp3 = true;
-            			}
-HXDLIN( 267)			if (_hx_tmp3) {
-HXLINE( 267)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 267)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
+HXDLIN( 251)			if (_hx_tmp2) {
+HXLINE( 251)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 251)				barBG1->set_y(((( (Float)(_hx_tmp) ) - barBG1->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE( 268)		this->icon->setGraphicSize(-4,null());
-HXLINE( 269)		 ::HealthIcon _hx_tmp4 = this->icon;
-HXDLIN( 269)		Float bar4 = bar3->y;
-HXDLIN( 269)		_hx_tmp4->set_y(((bar4 - (this->icon->get_height() / ( (Float)(2) ))) - ( (Float)(20) )));
-HXLINE( 270)		this->add(this->icon);
+HXLINE( 252)		{
+HXLINE( 252)			 ::flixel::math::FlxBasePoint this1 = barBG1->scrollFactor;
+HXDLIN( 252)			this1->set_x(( (Float)(0) ));
+HXDLIN( 252)			this1->set_y(( (Float)(0) ));
+            		}
+HXLINE( 253)		barBG1->set_visible(false);
+HXLINE( 254)		this->add(barBG1);
+HXLINE( 256)		Float bar = (barBG1->x + 4);
+HXDLIN( 256)		Float bar1 = (barBG1->y + 4);
+HXDLIN( 256)		int bar2 = ::Std_obj::_hx_int((barBG1->get_width() - ( (Float)(8) )));
+HXDLIN( 256)		 ::flixel::ui::FlxBar bar3 =  ::flixel::ui::FlxBar_obj::__alloc( HX_CTX ,bar,bar1,::flixel::ui::FlxBarFillDirection_obj::RIGHT_TO_LEFT_dyn(),bar2,::Std_obj::_hx_int((barBG1->get_height() - ( (Float)(8) ))),::hx::ObjectPtr<OBJ_>(this),HX_("health",9c,28,06,fd),0,2,null());
+HXLINE( 257)		{
+HXLINE( 257)			 ::flixel::math::FlxBasePoint this2 = bar3->scrollFactor;
+HXDLIN( 257)			this2->set_x(( (Float)(0) ));
+HXDLIN( 257)			this2->set_y(( (Float)(0) ));
+            		}
+HXLINE( 258)		bar3->createFilledBar(-65536,-10027213,null(),null());
+HXLINE( 259)		bar3->set_visible(false);
+HXLINE( 260)		this->add(bar3);
+HXLINE( 262)		this->icon =  ::HealthIcon_obj::__alloc( HX_CTX ,this->unlockedCharacters->__get(this->curSelected),true);
+HXLINE( 265)		bool _hx_tmp3;
+HXDLIN( 265)		bool _hx_tmp4;
+HXDLIN( 265)		if ((this->unlockedCharacters->__get(this->curSelected) != HX_("bf-car",cb,95,e2,07))) {
+HXLINE( 265)			_hx_tmp4 = (this->unlockedCharacters->__get(this->curSelected) == HX_("bf-christmas",79,02,f4,24));
+            		}
+            		else {
+HXLINE( 265)			_hx_tmp4 = true;
+            		}
+HXDLIN( 265)		if (!(_hx_tmp4)) {
+HXLINE( 265)			_hx_tmp3 = (this->unlockedCharacters->__get(this->curSelected) == HX_("bf-holding-gf",92,81,6a,17));
+            		}
+            		else {
+HXLINE( 265)			_hx_tmp3 = true;
+            		}
+HXDLIN( 265)		if (_hx_tmp3) {
+HXLINE( 266)			this->icon->changeIcon(HX_("bf",c4,55,00,00));
+            		}
+HXLINE( 268)		{
+HXLINE( 268)			 ::HealthIcon _this = this->icon;
+HXDLIN( 268)			int axes1 = 1;
+HXDLIN( 268)			bool _hx_tmp5;
+HXDLIN( 268)			if ((axes1 != 1)) {
+HXLINE( 268)				_hx_tmp5 = (axes1 == 17);
+            			}
+            			else {
+HXLINE( 268)				_hx_tmp5 = true;
+            			}
+HXDLIN( 268)			if (_hx_tmp5) {
+HXLINE( 268)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 268)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
+            			}
+HXDLIN( 268)			bool _hx_tmp6;
+HXDLIN( 268)			if ((axes1 != 16)) {
+HXLINE( 268)				_hx_tmp6 = (axes1 == 17);
+            			}
+            			else {
+HXLINE( 268)				_hx_tmp6 = true;
+            			}
+HXDLIN( 268)			if (_hx_tmp6) {
+HXLINE( 268)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 268)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
+            			}
+            		}
+HXLINE( 269)		this->icon->setGraphicSize(-4,null());
+HXLINE( 270)		 ::HealthIcon _hx_tmp7 = this->icon;
+HXDLIN( 270)		Float bar4 = bar3->y;
+HXDLIN( 270)		_hx_tmp7->set_y(((bar4 - (this->icon->get_height() / ( (Float)(2) ))) - ( (Float)(20) )));
+HXLINE( 271)		this->add(this->icon);
             	}
 
 
@@ -663,15 +649,12 @@ void CharMenu_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(selectableCharacters,"selectableCharacters");
 	HX_MARK_MEMBER_NAME(selectableCharactersNames,"selectableCharactersNames");
 	HX_MARK_MEMBER_NAME(selectableCharactersBGs,"selectableCharactersBGs");
-	HX_MARK_MEMBER_NAME(charOffsets,"charOffsets");
 	HX_MARK_MEMBER_NAME(unlockableChars,"unlockableChars");
 	HX_MARK_MEMBER_NAME(unlockableCharsNames,"unlockableCharsNames");
 	HX_MARK_MEMBER_NAME(unlockableCharsBGs,"unlockableCharsBGs");
-	HX_MARK_MEMBER_NAME(unlockableCharsOffsets,"unlockableCharsOffsets");
 	HX_MARK_MEMBER_NAME(unlockedCharacters,"unlockedCharacters");
 	HX_MARK_MEMBER_NAME(unlockedCharactersNames,"unlockedCharactersNames");
 	HX_MARK_MEMBER_NAME(unlockedCharactersBGs,"unlockedCharactersBGs");
-	HX_MARK_MEMBER_NAME(unlockedOffsets,"unlockedOffsets");
 	HX_MARK_MEMBER_NAME(backgroundFolder,"backgroundFolder");
 	HX_MARK_MEMBER_NAME(fontFolder,"fontFolder");
 	HX_MARK_MEMBER_NAME(sharedImagesFolder,"sharedImagesFolder");
@@ -694,15 +677,12 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(selectableCharacters,"selectableCharacters");
 	HX_VISIT_MEMBER_NAME(selectableCharactersNames,"selectableCharactersNames");
 	HX_VISIT_MEMBER_NAME(selectableCharactersBGs,"selectableCharactersBGs");
-	HX_VISIT_MEMBER_NAME(charOffsets,"charOffsets");
 	HX_VISIT_MEMBER_NAME(unlockableChars,"unlockableChars");
 	HX_VISIT_MEMBER_NAME(unlockableCharsNames,"unlockableCharsNames");
 	HX_VISIT_MEMBER_NAME(unlockableCharsBGs,"unlockableCharsBGs");
-	HX_VISIT_MEMBER_NAME(unlockableCharsOffsets,"unlockableCharsOffsets");
 	HX_VISIT_MEMBER_NAME(unlockedCharacters,"unlockedCharacters");
 	HX_VISIT_MEMBER_NAME(unlockedCharactersNames,"unlockedCharactersNames");
 	HX_VISIT_MEMBER_NAME(unlockedCharactersBGs,"unlockedCharactersBGs");
-	HX_VISIT_MEMBER_NAME(unlockedOffsets,"unlockedOffsets");
 	HX_VISIT_MEMBER_NAME(backgroundFolder,"backgroundFolder");
 	HX_VISIT_MEMBER_NAME(fontFolder,"fontFolder");
 	HX_VISIT_MEMBER_NAME(sharedImagesFolder,"sharedImagesFolder");
@@ -741,7 +721,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		if (HX_FIELD_EQ(inName,"imageArray") ) { return ::hx::Val( imageArray ); }
 		break;
 	case 11:
-		if (HX_FIELD_EQ(inName,"charOffsets") ) { return ::hx::Val( charOffsets ); }
 		if (HX_FIELD_EQ(inName,"curSelected") ) { return ::hx::Val( curSelected ); }
 		if (HX_FIELD_EQ(inName,"doesntExist") ) { return ::hx::Val( doesntExist ); }
 		break;
@@ -750,7 +729,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"unlockableChars") ) { return ::hx::Val( unlockableChars ); }
-		if (HX_FIELD_EQ(inName,"unlockedOffsets") ) { return ::hx::Val( unlockedOffsets ); }
 		if (HX_FIELD_EQ(inName,"alreadySelected") ) { return ::hx::Val( alreadySelected ); }
 		if (HX_FIELD_EQ(inName,"changeSelection") ) { return ::hx::Val( changeSelection_dyn() ); }
 		break;
@@ -763,7 +741,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		if (HX_FIELD_EQ(inName,"unlockedCharacters") ) { return ::hx::Val( unlockedCharacters ); }
 		if (HX_FIELD_EQ(inName,"sharedImagesFolder") ) { return ::hx::Val( sharedImagesFolder ); }
 		if (HX_FIELD_EQ(inName,"ifCharsAreUnlocked") ) { return ::hx::Val( ifCharsAreUnlocked ); }
-		if (HX_FIELD_EQ(inName,"addCharImageOffset") ) { return ::hx::Val( addCharImageOffset_dyn() ); }
 		break;
 	case 20:
 		if (HX_FIELD_EQ(inName,"selectableCharacters") ) { return ::hx::Val( selectableCharacters ); }
@@ -771,9 +748,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 21:
 		if (HX_FIELD_EQ(inName,"unlockedCharactersBGs") ) { return ::hx::Val( unlockedCharactersBGs ); }
-		break;
-	case 22:
-		if (HX_FIELD_EQ(inName,"unlockableCharsOffsets") ) { return ::hx::Val( unlockableCharsOffsets ); }
 		break;
 	case 23:
 		if (HX_FIELD_EQ(inName,"selectableCharactersBGs") ) { return ::hx::Val( selectableCharactersBGs ); }
@@ -802,7 +776,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		if (HX_FIELD_EQ(inName,"imageArray") ) { imageArray=inValue.Cast< ::Array< ::Dynamic> >(); return inValue; }
 		break;
 	case 11:
-		if (HX_FIELD_EQ(inName,"charOffsets") ) { charOffsets=inValue.Cast< ::Array< ::Dynamic> >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"curSelected") ) { curSelected=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"doesntExist") ) { doesntExist=inValue.Cast< bool >(); return inValue; }
 		break;
@@ -811,7 +784,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"unlockableChars") ) { unlockableChars=inValue.Cast< ::Array< ::String > >(); return inValue; }
-		if (HX_FIELD_EQ(inName,"unlockedOffsets") ) { unlockedOffsets=inValue.Cast< ::Array< ::Dynamic> >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"alreadySelected") ) { alreadySelected=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 16:
@@ -831,9 +803,6 @@ void CharMenu_obj::__Visit(HX_VISIT_PARAMS)
 	case 21:
 		if (HX_FIELD_EQ(inName,"unlockedCharactersBGs") ) { unlockedCharactersBGs=inValue.Cast< ::Array< ::String > >(); return inValue; }
 		break;
-	case 22:
-		if (HX_FIELD_EQ(inName,"unlockableCharsOffsets") ) { unlockableCharsOffsets=inValue.Cast< ::Array< ::Dynamic> >(); return inValue; }
-		break;
 	case 23:
 		if (HX_FIELD_EQ(inName,"selectableCharactersBGs") ) { selectableCharactersBGs=inValue.Cast< ::Array< ::String > >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"unlockedCharactersNames") ) { unlockedCharactersNames=inValue.Cast< ::Array< ::String > >(); return inValue; }
@@ -849,15 +818,12 @@ void CharMenu_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_("selectableCharacters",e0,6a,bc,4b));
 	outFields->push(HX_("selectableCharactersNames",c8,28,a6,38));
 	outFields->push(HX_("selectableCharactersBGs",2e,f4,a3,56));
-	outFields->push(HX_("charOffsets",4a,f9,e9,fe));
 	outFields->push(HX_("unlockableChars",9f,f5,95,7a));
 	outFields->push(HX_("unlockableCharsNames",a9,49,22,35));
 	outFields->push(HX_("unlockableCharsBGs",cf,6a,1c,eb));
-	outFields->push(HX_("unlockableCharsOffsets",a1,bd,4d,a4));
 	outFields->push(HX_("unlockedCharacters",ad,3a,3f,52));
 	outFields->push(HX_("unlockedCharactersNames",db,f1,bd,31));
 	outFields->push(HX_("unlockedCharactersBGs",81,42,0d,28));
-	outFields->push(HX_("unlockedOffsets",9d,17,7c,17));
 	outFields->push(HX_("backgroundFolder",3c,25,27,c4));
 	outFields->push(HX_("fontFolder",dd,0d,e4,ad));
 	outFields->push(HX_("sharedImagesFolder",cb,23,a4,1b));
@@ -879,15 +845,12 @@ static ::hx::StorageInfo CharMenu_obj_sMemberStorageInfo[] = {
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,selectableCharacters),HX_("selectableCharacters",e0,6a,bc,4b)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,selectableCharactersNames),HX_("selectableCharactersNames",c8,28,a6,38)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,selectableCharactersBGs),HX_("selectableCharactersBGs",2e,f4,a3,56)},
-	{::hx::fsObject /* ::Array< ::Dynamic> */ ,(int)offsetof(CharMenu_obj,charOffsets),HX_("charOffsets",4a,f9,e9,fe)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockableChars),HX_("unlockableChars",9f,f5,95,7a)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockableCharsNames),HX_("unlockableCharsNames",a9,49,22,35)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockableCharsBGs),HX_("unlockableCharsBGs",cf,6a,1c,eb)},
-	{::hx::fsObject /* ::Array< ::Dynamic> */ ,(int)offsetof(CharMenu_obj,unlockableCharsOffsets),HX_("unlockableCharsOffsets",a1,bd,4d,a4)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockedCharacters),HX_("unlockedCharacters",ad,3a,3f,52)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockedCharactersNames),HX_("unlockedCharactersNames",db,f1,bd,31)},
 	{::hx::fsObject /* ::Array< ::String > */ ,(int)offsetof(CharMenu_obj,unlockedCharactersBGs),HX_("unlockedCharactersBGs",81,42,0d,28)},
-	{::hx::fsObject /* ::Array< ::Dynamic> */ ,(int)offsetof(CharMenu_obj,unlockedOffsets),HX_("unlockedOffsets",9d,17,7c,17)},
 	{::hx::fsString,(int)offsetof(CharMenu_obj,backgroundFolder),HX_("backgroundFolder",3c,25,27,c4)},
 	{::hx::fsString,(int)offsetof(CharMenu_obj,fontFolder),HX_("fontFolder",dd,0d,e4,ad)},
 	{::hx::fsString,(int)offsetof(CharMenu_obj,sharedImagesFolder),HX_("sharedImagesFolder",cb,23,a4,1b)},
@@ -910,15 +873,12 @@ static ::String CharMenu_obj_sMemberFields[] = {
 	HX_("selectableCharacters",e0,6a,bc,4b),
 	HX_("selectableCharactersNames",c8,28,a6,38),
 	HX_("selectableCharactersBGs",2e,f4,a3,56),
-	HX_("charOffsets",4a,f9,e9,fe),
 	HX_("unlockableChars",9f,f5,95,7a),
 	HX_("unlockableCharsNames",a9,49,22,35),
 	HX_("unlockableCharsBGs",cf,6a,1c,eb),
-	HX_("unlockableCharsOffsets",a1,bd,4d,a4),
 	HX_("unlockedCharacters",ad,3a,3f,52),
 	HX_("unlockedCharactersNames",db,f1,bd,31),
 	HX_("unlockedCharactersBGs",81,42,0d,28),
-	HX_("unlockedOffsets",9d,17,7c,17),
 	HX_("backgroundFolder",3c,25,27,c4),
 	HX_("fontFolder",dd,0d,e4,ad),
 	HX_("sharedImagesFolder",cb,23,a4,1b),
@@ -934,7 +894,6 @@ static ::String CharMenu_obj_sMemberFields[] = {
 	HX_("ifCharsAreUnlocked",b7,02,fa,84),
 	HX_("create",fc,66,0f,7c),
 	HX_("update",09,86,05,87),
-	HX_("addCharImageOffset",f7,e0,10,44),
 	HX_("changeSelection",bc,98,b5,48),
 	HX_("charCheck",12,22,0f,ff),
 	::String(null()) };

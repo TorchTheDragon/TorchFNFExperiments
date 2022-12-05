@@ -14438,7 +14438,6 @@
    <depend name="include/editors/ChartingState.h"/>
    <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/flixel/FlxG.h"/>
-   <depend name="include/flixel/FlxGame.h"/>
    <depend name="include/flixel/FlxObject.h"/>
    <depend name="include/flixel/FlxSprite.h"/>
    <depend name="include/flixel/FlxState.h"/>
@@ -14475,11 +14474,6 @@
    <depend name="include/haxe/IMap.h"/>
    <depend name="include/haxe/Log.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
-   <depend name="include/openfl/display/DisplayObject.h"/>
-   <depend name="include/openfl/display/DisplayObjectContainer.h"/>
-   <depend name="include/openfl/display/IBitmapDrawable.h"/>
-   <depend name="include/openfl/display/InteractiveObject.h"/>
-   <depend name="include/openfl/display/Sprite.h"/>
    <depend name="include/openfl/events/EventDispatcher.h"/>
    <depend name="include/openfl/events/IEventDispatcher.h"/>
    <depend name="include/openfl/media/Sound.h"/>
@@ -15182,7 +15176,6 @@
    <depend name="include/Controls.h"/>
    <depend name="include/FreeplayState.h"/>
    <depend name="include/HealthIcon.h"/>
-   <depend name="include/LoadingState.h"/>
    <depend name="include/MusicBeatState.h"/>
    <depend name="include/Paths.h"/>
    <depend name="include/PlayState.h"/>

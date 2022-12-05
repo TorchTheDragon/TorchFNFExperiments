@@ -89,9 +89,6 @@
 #ifndef INCLUDED_flixel_FlxG
 #include <flixel/FlxG.h>
 #endif
-#ifndef INCLUDED_flixel_FlxGame
-#include <flixel/FlxGame.h>
-#endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
 #endif
@@ -199,21 +196,6 @@
 #endif
 #ifndef INCLUDED_haxe_ds_StringMap
 #include <haxe/ds/StringMap.h>
-#endif
-#ifndef INCLUDED_openfl_display_DisplayObject
-#include <openfl/display/DisplayObject.h>
-#endif
-#ifndef INCLUDED_openfl_display_DisplayObjectContainer
-#include <openfl/display/DisplayObjectContainer.h>
-#endif
-#ifndef INCLUDED_openfl_display_IBitmapDrawable
-#include <openfl/display/IBitmapDrawable.h>
-#endif
-#ifndef INCLUDED_openfl_display_InteractiveObject
-#include <openfl/display/InteractiveObject.h>
-#endif
-#ifndef INCLUDED_openfl_display_Sprite
-#include <openfl/display/Sprite.h>
 #endif
 #ifndef INCLUDED_openfl_events_EventDispatcher
 #include <openfl/events/EventDispatcher.h>
@@ -756,10 +738,7 @@ HXLINE( 383)						::MusicBeatState_obj::switchState(::LoadingState_obj::getNextS
             					}
             					else {
 HXLINE( 384)						if (this->choosingChar) {
-HXLINE( 386)							 ::flixel::FlxState nextState =  ::CharMenu_obj::__alloc( HX_CTX ,null(),null());
-HXDLIN( 386)							if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 386)								::flixel::FlxG_obj::game->_requestedState = nextState;
-            							}
+HXLINE( 385)							::MusicBeatState_obj::switchState(::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::CharMenu_obj::__alloc( HX_CTX ,null(),null())) ),false));
             						}
             						else {
 HXLINE( 388)							::MusicBeatState_obj::switchState(::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),false));

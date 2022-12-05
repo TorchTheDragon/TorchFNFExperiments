@@ -64,15 +64,12 @@ class HXCPP_CLASS_ATTRIBUTES CharMenu_obj : public  ::MusicBeatState_obj
 		::Array< ::String > selectableCharacters;
 		::Array< ::String > selectableCharactersNames;
 		::Array< ::String > selectableCharactersBGs;
-		::Array< ::Dynamic> charOffsets;
 		::Array< ::String > unlockableChars;
 		::Array< ::String > unlockableCharsNames;
 		::Array< ::String > unlockableCharsBGs;
-		::Array< ::Dynamic> unlockableCharsOffsets;
 		::Array< ::String > unlockedCharacters;
 		::Array< ::String > unlockedCharactersNames;
 		::Array< ::String > unlockedCharactersBGs;
-		::Array< ::Dynamic> unlockedOffsets;
 		::String backgroundFolder;
 		::String fontFolder;
 		::String sharedImagesFolder;
@@ -89,9 +86,6 @@ class HXCPP_CLASS_ATTRIBUTES CharMenu_obj : public  ::MusicBeatState_obj
 		void create();
 
 		void update(Float elapsed);
-
-		void addCharImageOffset( ::Boyfriend image,int xOffset,int yOffset);
-		::Dynamic addCharImageOffset_dyn();
 
 		void changeSelection(::hx::Null< int >  changeAmount);
 		::Dynamic changeSelection_dyn();

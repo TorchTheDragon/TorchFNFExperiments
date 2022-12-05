@@ -382,8 +382,8 @@ class FreeplayState extends MusicBeatState
 			if (FlxG.keys.pressed.SHIFT){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else if (choosingChar){
-				//LoadingState.loadAndSwitchState(new CharMenu()); // Note to self, this causing backgrounds of songs to not load
-				FlxG.switchState(new CharMenu()); // Works flawlessly except the first time the CharMenu opens, it won't show character images till second time opening
+				LoadingState.loadAndSwitchState(new CharMenu()); // Note to self, this causing backgrounds of songs to not load
+				// FlxG.switchState(new CharMenu()); // Works flawlessly except the first time the CharMenu opens, it won't show character images till second time opening
 			}else{
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
