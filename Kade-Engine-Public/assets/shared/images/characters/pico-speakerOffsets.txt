@@ -1,0 +1,8 @@
+shoot4-loop 439 -19
+´shoot2-loop -1 -128
+shoot3 412 -64
+shoot3-loop 412 -64
+shoot4 439 -19
+shoot1 0 0
+shoot1-loop 0 0
+shoot2 -1 -128
