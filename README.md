@@ -17,6 +17,10 @@ Yes, now please stop asking.
 
 No. Follow the instructions for the Engine. (When they are made obviously)
 
+# There are no Instructions though.
+
+Well, I haven't made them yet, I have to make the CharMenu compatible first.
+
 # Can you make this compatible to put in the Mods folder?
 
 No.
