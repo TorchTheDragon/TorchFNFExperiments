@@ -27,21 +27,18 @@ class CharMenu extends MusicBeatState{
     // Selectable Character Variables
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico']; // Currently Selectable characters
     var selectableCharactersNames:Array<String> = ['Boyfriend.XML', 'Boyfriend but Christmas', 'Pico']; // Characters names
-    var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
-    var charOffsets:Array<Array<Int>> = [[0, 0], [10, -10], [50, -10]]; // Small offsets that YOU need to add to better center your characters in the selection menu // Doesn't seem to work yet
+    var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by defaultvar charOffsets:Array<Array<Int>> = [[0, 0], [10, -10], [50, -10]]; // Small offsets that YOU need to add to better center your characters in the selection menu // Doesn't seem to work yet
     // Unlockable characters are not yet implemented, but will be hopefully soon
     // Requesting help btw if anyone has an idea on how to implement this
     var unlockableChars:Array<String> = ['torch']; // Unlockable Characters
     var unlockableCharsNames:Array<String> = ['Torch the Dragon']; // Names of unlockable Characters
     var unlockableCharsBGs:Array<String> = ['BG3']; // Backgrounds for Unlockable characters
-    var unlockableCharsOffsets:Array<Array<Int>> = [[0, 0]]; // Offsets for the unlockable characters
-
+    
     // This is the characters that actually appear on the menu
     var unlockedCharacters:Array<String> = FlxG.save.data.unlockedChars;
     var unlockedCharactersNames:Array<String> = FlxG.save.data.unlockedCharsNames;
     var unlockedCharactersBGs:Array<String> = FlxG.save.data.unlockedCharsBGs;
-    var unlockedOffsets:Array<Array<Int>> = FlxG.save.data.unlockedOffsets;
-
+    
     // Folder locations
     var backgroundFolder:String = 'background'; // The location of the folder storing the characters backgrounds
     var fontFolder:String = 'assets/fonts/'; // Please don't change unless font folder changes, leads to the fonts folder
@@ -67,32 +64,29 @@ class CharMenu extends MusicBeatState{
         if (ifCharsAreUnlocked == null) 
         {
             ifCharsAreUnlocked = [false];
-            FlxG.save.data.daUnlockedChars = ifCharsAreUnlocked;
+            FlxG.save.data.daUnlockedChars = [false];
         }
         // If the unlocked chars save data is null, fill it with defaults
         if (unlockedCharacters == null) 
         {
             unlockedCharacters = selectableCharacters;
-            FlxG.save.data.unlockedChars = unlockedCharacters;
+            FlxG.save.data.unlockedChars = selectableCharacters;
         } 
         // If names are empty, fill it with defaults
         if (unlockedCharactersNames == null) 
         {
             unlockedCharactersNames = selectableCharactersNames;
-            FlxG.save.data.unlockedCharsNames = unlockedCharactersNames;
+            FlxG.save.data.unlockedCharsNames = selectableCharactersNames;
         }
         // If backgrounds are empty, fill it with defaults
         if (unlockedCharactersBGs == null) 
         {
             unlockedCharactersBGs = selectableCharactersBGs;
-            FlxG.save.data.unlockedCharsBGs = unlockedCharactersBGs;
+            FlxG.save.data.unlockedCharsBGs = selectableCharactersBGs;
         }
-        //
-        if (unlockedOffsets == null)
-        {
-            unlockedOffsets = charOffsets;
-            FlxG.save.data.unlockedOffests = unlockedOffsets;
-        }
+
+        unlockedCharacters[0] = PlayState.SONG.player1;
+        FlxG.save.data.unlockedChars[0] = PlayState.SONG.player1;
 
         // Making sure the background is added first to be in the back and then adding the character names and character images afterwords
         menuBG = new FlxSprite().loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
@@ -116,9 +110,14 @@ class CharMenu extends MusicBeatState{
 
             var characterImage:Boyfriend = new Boyfriend(0, 0, unlockedCharacters[i]);
             characterImage.scale.set(0.8, 0.8);
-            addCharImageOffset(characterImage, unlockedOffsets[i][0], unlockedOffsets[i][1]);
-            // characterImage.x = (FlxG.width / 2) - (characterImage.width / 2);
-            // characterImage.y = (FlxG.height / 2) - (characterImage.height / 2);
+            
+            var sprTracker:FlxSprite = characterText;
+            if (sprTracker != null)
+            {
+                characterImage.x = (sprTracker.y * 2) + 90 - 350;
+                characterImage.y = FlxG.height / 3 - 68;
+            }
+
             characterImage.screenCenter(XY);
             imageArray.push(characterImage);
             add(characterImage);
@@ -175,20 +174,23 @@ class CharMenu extends MusicBeatState{
             {
                 alreadySelected = true;
                 var daSelected:String = unlockedCharacters[curSelected];
-                if (unlockedCharacters[curSelected] != 'bf')
+                if (unlockedCharacters[curSelected] != PlayState.SONG.player1)
                     PlayState.SONG.player1 = daSelected;
 
                 FlxFlicker.flicker(imageArray[curSelected], 0);
                 new FlxTimer().start(1, function(tmr:FlxTimer)
                 {
-                    LoadingState.loadAndSwitchState(new PlayState());
+                    LoadingState.loadAndSwitchState(new PlayState()); // Usual way
+                    // FlxG.switchState(new PlayState()); // Gonna try this for Psych
                 });
             }
             if (goBack)
             {
                 if (PlayState.isStoryMode)
+                    // LoadingState.loadAndSwitchState(new StoryMenuState());
                     FlxG.switchState(new StoryMenuState());
                 else
+                    // LoadingState.loadAndSwitchState(new FreeplayState());
                     FlxG.switchState(new FreeplayState());
             }
 
@@ -199,13 +201,6 @@ class CharMenu extends MusicBeatState{
 
             super.update(elapsed);
         }
-    }
-
-    // Adds an offset to an image
-    function addCharImageOffset(image:Boyfriend, xOffset:Int, yOffset:Int) 
-    {
-        image.x += xOffset;
-        image.y += yOffset;
     }
 
     // Changes the currently selected character
@@ -219,7 +214,8 @@ class CharMenu extends MusicBeatState{
         
         for (i in 0...imageArray.length)
         {
-            imageArray[i].alpha = 0;
+            imageArray[i].alpha = 0.6;
+            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 350) + 125;
         }
         imageArray[curSelected].alpha = 1;
 
@@ -247,7 +243,7 @@ class CharMenu extends MusicBeatState{
         doesntExist = false;
         remove(icon);
 
-        menuBG.loadGraphic(unlockedCharactersBGs[curSelected]);
+        menuBG.loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
 
         doesntExist = true;
 
@@ -264,6 +260,11 @@ class CharMenu extends MusicBeatState{
         add(bar);
 
         icon = new HealthIcon(unlockedCharacters[curSelected], true);
+
+        // This code is for Psych but if necessary can be use on other engines too
+        if (unlockedCharacters[curSelected] == 'bf-car' || unlockedCharacters[curSelected] == 'bf-christmas' || unlockedCharacters[curSelected] == 'bf-holding-gf')
+            icon.changeIcon('bf');
+
         icon.screenCenter(X);
         icon.setGraphicSize(-4);
         icon.y = (bar.y - (icon.height / 2)) - 20;
