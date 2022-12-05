@@ -17,6 +17,6 @@ Soon, hopefuly, but right now, no.
 
 No.
 
-# Can you make this compatible to put in the mods folder?
+# Can you make this compatible to put in the Mods folder?
 
 No.
