@@ -17,6 +17,6 @@ Soon, hopefuly, but right now, no.
 
 No.
 
-# Can you make this compatible to put in the mods folder
+# Can you make this compatible to put in the mods folder?
 
-No, it is impossible for me, mainly cuz I suck with lua so idk if it is possible, but I don't think it is.
+No.
