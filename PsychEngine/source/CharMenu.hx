@@ -25,13 +25,13 @@ import flixel.ui.FlxBar;
 
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
-    var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico']; // Currently Selectable characters
+    var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico-player']; // Currently Selectable characters
     var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas', 'Pico']; // Characters names
     var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
     
     // Unlockable characters
-    var unlockableChars:Array<String> = ['spooky']; // Unlockable Characters
-    var unlockableCharsNames:Array<String> = ['ITS SPOOKY MONTH']; // Names of unlockable Characters
+    var unlockableChars:Array<String> = ['tankman-player']; // Unlockable Characters
+    var unlockableCharsNames:Array<String> = ['UGH']; // Names of unlockable Characters
     var unlockableCharsBGs:Array<String> = ['BG4']; // Backgrounds for Unlockable characters
     
     // This is the characters that actually appear on the menu
@@ -238,6 +238,10 @@ class CharMenu extends MusicBeatState{
         // This code is for Psych but if necessary can be use on other engines too
         if (unlockedCharacters[curSelected] == 'bf-car' || unlockedCharacters[curSelected] == 'bf-christmas' || unlockedCharacters[curSelected] == 'bf-holding-gf')
             icon.changeIcon('bf');
+        if (unlockedCharacters[curSelected] == 'pico-player')
+            icon.changeIcon('pico');
+        if (unlockedCharacters[curSelected] == 'tankman-player')
+            icon.changeIcon('tankman');
 
         icon.screenCenter(X);
         icon.setGraphicSize(-4);
