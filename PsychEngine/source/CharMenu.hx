@@ -31,9 +31,9 @@ class CharMenu extends MusicBeatState{
     
     // Unlockable characters are not yet implemented, but will be hopefully soon
     // Requesting help btw if anyone has an idea on how to implement this
-    var unlockableChars:Array<String> = ['torch']; // Unlockable Characters
-    var unlockableCharsNames:Array<String> = ['Torch the Dragon']; // Names of unlockable Characters
-    var unlockableCharsBGs:Array<String> = ['BG3']; // Backgrounds for Unlockable characters
+    var unlockableChars:Array<String> = ['spooky']; // Unlockable Characters
+    var unlockableCharsNames:Array<String> = ['ITS SPOOKY MONTH']; // Names of unlockable Characters
+    var unlockableCharsBGs:Array<String> = ['BG4']; // Backgrounds for Unlockable characters
     
     // This is the characters that actually appear on the menu
     var unlockedCharacters:Array<String> = [];
@@ -49,14 +49,11 @@ class CharMenu extends MusicBeatState{
     var curSelected:Int = 0; // Which character is selected
     var icon:HealthIcon; // The healthicon of the selected character
     var menuBG:FlxSprite; // The background
-    var grpMenu:FlxTypedGroup<Alphabet>; // The name of the char top right
-    var grpMenuImages:FlxTypedGroup<FlxSprite>; // The currently selected char
     private var imageArray:Array<Boyfriend> = []; // Array of all the selectable characters
     var selectedCharName:FlxText; // Name of selected character
 
     // Additional Variables
     var alreadySelected:Bool = false; // If the character is already selected
-    var doesntExist:Bool = false; // ??? I forgor
     var ifCharsAreUnlocked:Array<Bool> = FlxG.save.data.daUnlockedChars;
 
     override function create()
@@ -86,6 +83,8 @@ class CharMenu extends MusicBeatState{
 
         unlockedCharacters[0] = PlayState.SONG.player1;
 
+        unlockedCharsCheck();
+
         // Making sure the background is added first to be in the back and then adding the character names and character images afterwords
         menuBG = new FlxSprite().loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
         menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
@@ -93,19 +92,10 @@ class CharMenu extends MusicBeatState{
         menuBG.screenCenter();
         menuBG.antialiasing = true;
         add(menuBG);
-        grpMenu = new FlxTypedGroup<Alphabet>();
-        add(grpMenu);
-        grpMenuImages = new FlxTypedGroup<FlxSprite>();
-        add(grpMenuImages);
 
         // Adds the chars to the selection
         for (i in 0...unlockedCharacters.length)
         {
-            var characterText:Alphabet = new Alphabet(170, (70 * i) + 230, unlockedCharacters[i], true);
-            characterText.isMenuItem = true;
-            characterText.targetY = i;
-            grpMenu.add(characterText);
-
             var characterImage:Boyfriend = new Boyfriend(0, 0, unlockedCharacters[i]);
             characterImage.scale.set(0.8, 0.8);
 
@@ -155,6 +145,9 @@ class CharMenu extends MusicBeatState{
         var accepted = controls.ACCEPT; // Should be Universal
         var goBack = controls.BACK; // Should be Universal
 
+        // Testing only DO NOT USE
+        var unlockTest = FlxG.keys.justPressed.U;
+        
         if (!alreadySelected)
         {
             if (leftPress)
@@ -184,7 +177,15 @@ class CharMenu extends MusicBeatState{
                     // LoadingState.loadAndSwitchState(new FreeplayState());
                     FlxG.switchState(new FreeplayState());
             }
-
+            if (unlockTest)
+                {
+                    if (FlxG.save.data.daUnlockedChars[0] == true)
+                        trace("Unlocked Secret");
+                    else
+                        trace("Locked Secret");
+                    FlxG.save.data.daUnlockedChars[0] = !FlxG.save.data.daUnlockedChars[0];
+                }
+    
             for (i in 0...imageArray.length)
             {
                 imageArray[i].dance();
@@ -210,34 +211,16 @@ class CharMenu extends MusicBeatState{
             imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2); // Will add more to this later to make it look nicer
         }
         imageArray[curSelected].alpha = 1;
-
-        var tempInt:Int = 0;
-
-        for (item in grpMenu.members)
-        {
-            item.targetY = tempInt - curSelected;
-            tempInt++;
-
-            item.alpha = 0;
-
-            if (item.targetY == 0)
-            {
-                // Empty I guess, I forgot what this was supposed to be for
-            }
-        }
-
+        
         charCheck();
     }
 
     // Checks for what char is selected and creates an icon for it
     function charCheck()
     {
-        doesntExist = false;
         remove(icon);
 
         menuBG.loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
-
-        doesntExist = true;
 
         var barBG:FlxSprite = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(sharedImagesFolder + 'healthBar.png');
         barBG.screenCenter(X);
@@ -261,5 +244,41 @@ class CharMenu extends MusicBeatState{
         icon.setGraphicSize(-4);
         icon.y = (bar.y - (icon.height / 2)) - 20;
         add(icon);
+    }
+    
+    function unlockedCharsCheck()
+    {
+        // Resets all values to ensure that nothing is broken
+        resetCharacterSelectionVars();
+
+        // Makes this universal value equal the save data
+        ifCharsAreUnlocked = FlxG.save.data.daUnlockedChars;
+
+        // If you have managed to unlock a character, set it as unlocked here
+        for (i in 0...ifCharsAreUnlocked.length)
+        {
+            if (ifCharsAreUnlocked[i] == true)
+            {
+                unlockedCharacters.push(unlockableChars[i]);
+                unlockedCharactersNames.push(unlockableCharsNames[i]);
+                unlockedCharactersBGs.push(unlockableCharsBGs[i]);
+            }
+        }
+    }
+
+    function resetCharacterSelectionVars() 
+    {
+        // Just resets all things to defaults
+        ifCharsAreUnlocked = [false];
+
+        // Ensures the characters are reset and that the first one is the default character
+        unlockedCharacters = selectableCharacters;
+        unlockedCharacters[0] = PlayState.SONG.player1; 
+
+        // Grabs default character names
+        unlockedCharactersNames = selectableCharactersNames;
+
+        // Grabs default backgrounds
+        unlockedCharactersBGs = selectableCharactersBGs;
     }
 }
