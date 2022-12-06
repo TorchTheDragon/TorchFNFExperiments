@@ -5,6 +5,7 @@ mkdir .\%HAXELIB_ROOT%
 haxelib setup "%HAXELIB_ROOT%"
 pause 
 haxelib install lime 7.9.0
+haxelib run lime setup
 haxelib install openfl
 haxelib install flixel
 lime setup flixel
@@ -17,6 +18,7 @@ haxelib install flixel-ui
 haxelib install hscript
 haxelib install hxcpp-debug-server
 haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
+haxelib install hxCodec
 haxelib install flixel-addons
 haxelib git faxe https://github.com/uhrobots/faxe
 haxelib git polymod https://github.com/larsiusprime/polymod.git
