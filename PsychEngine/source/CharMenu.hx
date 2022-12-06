@@ -23,6 +23,8 @@ import Character.Character;
 import HealthIcon.HealthIcon;
 import flixel.ui.FlxBar;
 
+import StringTools;
+
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico-player']; // Currently Selectable characters
@@ -96,7 +98,10 @@ class CharMenu extends MusicBeatState{
         for (i in 0...unlockedCharacters.length)
         {
             var characterImage:Boyfriend = new Boyfriend(0, 0, unlockedCharacters[i]);
-            characterImage.scale.set(0.8, 0.8);
+            if (StringTools.endsWith(unlockedCharacters[i], '-pixel'))
+                characterImage.scale.set(5.5, 5.5);
+            else
+                characterImage.scale.set(0.8, 0.8);
 
             characterImage.screenCenter(XY);
             imageArray.push(characterImage);
@@ -197,6 +202,7 @@ class CharMenu extends MusicBeatState{
     // Changes the currently selected character
     function changeSelection(changeAmount:Int = 0):Void
     {
+        // This just ensures you don't go over the intended amount
         curSelected += changeAmount;
         if (curSelected < 0)
             curSelected = unlockedCharacters.length - 1;
@@ -205,10 +211,23 @@ class CharMenu extends MusicBeatState{
         
         for (i in 0...imageArray.length)
         {
+            // Sets the unselected characters to a more transparent form
             imageArray[i].alpha = 0.6;
-            imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 125;
-            imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2); // Will add more to this later to make it look nicer
+
+            // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+            if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
+            {
+                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 325;
+                imageArray[i].y = (FlxG.height / 2) - 60;
+            }
+            else
+            {
+                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 150;
+                imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2);
+            }
         }
+
+        // Makes sure the character you ave selected is indeed visible
         imageArray[curSelected].alpha = 1;
         
         charCheck();
