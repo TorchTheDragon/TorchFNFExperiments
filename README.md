@@ -17,9 +17,13 @@ Yes, now please stop asking. [Instructions](./Instructions/Psych/)
 
 No. Follow the instructions for the Engine.
 
-# There are no Instructions though.
+# There are no Instructions for my engine though.
 
-Well, I haven't made them yet, I have to make the CharMenu compatible first.
+Well, I haven't made all of them yet, I have to make the CharMenu compatible first.
+
+# Will there be video instructions?
+
+Yes, when I finally get to it.
 
 # Can you make this compatible to put in the Mods folder?
 
