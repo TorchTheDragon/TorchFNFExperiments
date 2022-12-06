@@ -3428,6 +3428,13 @@ class PlayState extends MusicBeatState
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
+			case 'Unlock Character':
+				var val1:Null<Int> = Std.parseInt(value1);
+				if (val1 == null) val1 = 1;
+
+				var val2:Bool = (value2.toLowerCase() == 'true' || value2.toLowerCase() == '1' || value2.toLowerCase() == 'yes' || value2.toLowerCase() == 'unlock');
+
+				FlxG.save.data.daUnlockedChars[val1 - 1] = val2;
 			case 'Dadbattle Spotlight':
 				var val:Null<Int> = Std.parseInt(value1);
 				if(val == null) val = 0;
