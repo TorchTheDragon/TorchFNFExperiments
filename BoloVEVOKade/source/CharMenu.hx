@@ -238,6 +238,10 @@ class CharMenu extends MusicBeatState{
         // This code is for Psych but if necessary can be use on other engines too
         if (unlockedCharacters[curSelected] == 'bf-car' || unlockedCharacters[curSelected] == 'bf-christmas' || unlockedCharacters[curSelected] == 'bf-holding-gf')
             icon.changeIcon('bf');
+        if (unlockedCharacters[curSelected] == 'pico-player')
+            icon.changeIcon('pico');
+        if (unlockedCharacters[curSelected] == 'tankman-player')
+            icon.changeIcon('tankman');
 
         icon.screenCenter(X);
         icon.setGraphicSize(-4);
