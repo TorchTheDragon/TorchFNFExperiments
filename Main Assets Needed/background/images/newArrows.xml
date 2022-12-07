@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="newArrows.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="leftPress0000" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0001" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0002" x="1199" y="10" width="1212" height="250"/>
+	<SubTexture name="leftPress0003" x="2421" y="10" width="1198" height="209" frameX="-14" frameY="-20" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0004" x="10" y="270" width="1187" height="178" frameX="-25" frameY="-36" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0005" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0006" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0007" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0008" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0009" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0010" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="leftPress0011" x="10" y="10" width="1179" height="153" frameX="-33" frameY="-48" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0000" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0001" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0002" x="1207" y="270" width="1216" height="250"/>
+	<SubTexture name="rightPress0003" x="2433" y="270" width="1202" height="209" frameX="0" frameY="-21" frameWidth="1216" frameHeight="250"/>
+	<SubTexture name="rightPress0004" x="10" y="530" width="1188" height="178" frameX="0" frameY="-37" frameWidth="1216" frameHeight="250"/>
+	<SubTexture name="rightPress0005" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0006" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0007" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0008" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0009" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0010" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="rightPress0011" x="10" y="10" width="1179" height="153" frameX="0" frameY="-49" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0000" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0001" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0002" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0003" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0004" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0005" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0006" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0007" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0008" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0009" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0010" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+	<SubTexture name="static0011" x="10" y="10" width="1179" height="153" frameX="0" frameY="0" frameWidth="1212" frameHeight="250"/>
+</TextureAtlas>
