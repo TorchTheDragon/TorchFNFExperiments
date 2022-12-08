@@ -57,6 +57,9 @@ class CharMenu extends MusicBeatState{
     var alreadySelected:Bool = false; // If the character is already selected
     var ifCharsAreUnlocked:Array<Bool> = FlxG.save.data.daUnlockedChars;
 
+    // Animated Arrows Variables
+    var newArrows:FlxSprite;
+
     override function create()
     {
         // Useless for now
@@ -113,12 +116,27 @@ class CharMenu extends MusicBeatState{
         selectionHeader.screenCenter(X);
         add(selectionHeader);
 
+        // Old arrows
         // The left and right arrows on screen
         var arrows:FlxSprite = new FlxSprite().loadGraphic(Paths.image('arrowSelection', backgroundFolder));
         arrows.setGraphicSize(Std.int(arrows.width * 1.1));
         arrows.screenCenter();
         arrows.antialiasing = true;
         add(arrows);
+
+        // Not centered Correctly, need to figure out how to do that
+        /*
+        // New Animated Arrows
+        newArrows = new FlxSprite();
+        newArrows.frames = Paths.getSparrowAtlas('newArrows', 'background');
+        newArrows.animation.addByPrefix('idle', 'static', 24, false);
+        newArrows.animation.addByPrefix('left', 'leftPress', 24, false);
+        newArrows.animation.addByPrefix('right', 'rightPress', 24, false);
+        newArrows.antialiasing = true;
+        newArrows.screenCenter(XY);
+        newArrows.animation.play('idle');
+        add(newArrows);
+        */
 
         // The currently selected character's name top right
         selectedCharName = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
@@ -155,9 +173,15 @@ class CharMenu extends MusicBeatState{
         if (!alreadySelected)
         {
             if (leftPress)
+            {
+                // newArrows.animation.play('left', true);
                 changeSelection(-1);
+            }
             if (rightPress)
+            {
+                // newArrows.animation.play('right', true);
                 changeSelection(1);
+            }
             if (accepted)
             {
                 alreadySelected = true;
@@ -194,6 +218,12 @@ class CharMenu extends MusicBeatState{
             {
                 imageArray[i].dance();
             }
+
+            // Note to self - Uncomment once fixed
+            /*
+            if (newArrows.animation.finished == true)
+                newArrows.animation.play('idle');
+            */
 
             super.update(elapsed);
         }

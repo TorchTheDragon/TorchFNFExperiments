@@ -219,8 +219,11 @@ class CharMenu extends MusicBeatState{
                 imageArray[i].dance();
             }
 
+            // Note to self - Uncomment once fixed
+            /*
             if (newArrows.animation.finished == true)
                 newArrows.animation.play('idle');
+            */
 
             super.update(elapsed);
         }
