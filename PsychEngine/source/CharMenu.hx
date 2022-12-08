@@ -207,11 +207,11 @@ class CharMenu extends MusicBeatState{
             }
             if (unlockTest)
                 {
+                    FlxG.save.data.daUnlockedChars[0] = !FlxG.save.data.daUnlockedChars[0];
                     if (FlxG.save.data.daUnlockedChars[0] == true)
                         trace("Unlocked Secret");
                     else
                         trace("Locked Secret");
-                    FlxG.save.data.daUnlockedChars[0] = !FlxG.save.data.daUnlockedChars[0];
                 }
     
             for (i in 0...imageArray.length)
