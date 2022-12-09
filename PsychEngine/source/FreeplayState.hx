@@ -379,9 +379,13 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			
+
+			// This is the old transitioning thingy, gonna make a new one that may keep audio in new character menu
+			/*
 			if (FlxG.keys.pressed.SHIFT){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else if (choosingChar){
+				// MusicBeatState.switchState(new CharMenu()); // This is just to test to see if transitioning from freeplay will keep music playing -- Didn't work
 				LoadingState.loadAndSwitchState(new CharMenu());
 				// FlxG.switchState(new CharMenu());
 			}else{
@@ -391,6 +395,23 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume = 0;
 					
 			destroyFreeplayVocals();
+			*/
+
+			if (choosingChar){
+				LoadingState.loadAndSwitchState(new CharMenu());
+			}
+			else
+			{
+				if (FlxG.keys.pressed.SHIFT){
+					LoadingState.loadAndSwitchState(new ChartingState());
+				}else{
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+				
+				FlxG.sound.music.volume = 0;
+					
+				destroyFreeplayVocals();
+			}
 		}
 		else if(controls.RESET)
 		{

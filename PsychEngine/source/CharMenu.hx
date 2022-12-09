@@ -24,6 +24,7 @@ import HealthIcon.HealthIcon;
 import flixel.ui.FlxBar;
 
 import StringTools;
+import FreeplayState;
 
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
@@ -190,7 +191,12 @@ class CharMenu extends MusicBeatState{
                     PlayState.SONG.player1 = daSelected;
 
                 FlxFlicker.flicker(imageArray[curSelected], 0);
-                new FlxTimer().start(1, function(tmr:FlxTimer)
+
+                // This is to make the audio stop when leaving to PlayState
+                FlxG.sound.music.volume = 0;	
+				FreeplayState.destroyFreeplayVocals();
+
+                new FlxTimer().start(0.75, function(tmr:FlxTimer)
                 {
                     // LoadingState.loadAndSwitchState(new PlayState()); // Usual way
                     FlxG.switchState(new PlayState()); // Gonna try this for Psych
