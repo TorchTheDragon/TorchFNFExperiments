@@ -23,7 +23,7 @@ Well, I haven't made all of them yet, I have to make the CharMenu compatible fir
 
 # Will there be video instructions?
 
-Yes, when I finally get to it.
+https://www.youtube.com/watch?v=mOaQ6gWYl9o&ab_channel=TorchTheDragon
 
 # Can you make this compatible to put in the Mods folder?
 
