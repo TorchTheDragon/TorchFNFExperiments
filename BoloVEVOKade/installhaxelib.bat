@@ -1,8 +1,8 @@
 cinst neko --version 2.3.0 -y
 cinst haxe --version 4.1.5 -y
 pause
-mkdir .\%HAXELIB_ROOT%
-haxelib setup "%HAXELIB_ROOT%"
+mkdir C:\projects\haxelib
+haxelib setup C:\projects\haxelib
 pause 
 haxelib install lime 7.9.0
 haxelib run lime setup
