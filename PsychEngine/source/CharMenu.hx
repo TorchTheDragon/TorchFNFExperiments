@@ -119,14 +119,15 @@ class CharMenu extends MusicBeatState{
 
         // Old arrows
         // The left and right arrows on screen
+        /*
         var arrows:FlxSprite = new FlxSprite().loadGraphic(Paths.image('arrowSelection', backgroundFolder));
         arrows.setGraphicSize(Std.int(arrows.width * 1.1));
         arrows.screenCenter();
         arrows.antialiasing = true;
         add(arrows);
+        */
 
         // Not centered Correctly, need to figure out how to do that
-        /*
         // New Animated Arrows
         newArrows = new FlxSprite();
         newArrows.frames = Paths.getSparrowAtlas('newArrows', 'background');
@@ -137,7 +138,6 @@ class CharMenu extends MusicBeatState{
         newArrows.screenCenter(XY);
         newArrows.animation.play('idle');
         add(newArrows);
-        */
 
         // The currently selected character's name top right
         selectedCharName = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
@@ -152,6 +152,25 @@ class CharMenu extends MusicBeatState{
 
     override function update(elapsed:Float)
     {
+        // Code for adding arrow offset when an animation is being played
+        // Ended up just being test code
+        /*
+        if (newArrows.animation.curAnim.name != 'idle')
+        {
+            switch (newArrows.animation.curAnim.name)
+            {
+                case 'left':
+                    newArrows.offset.set(25, 5);
+                case 'right':
+                    newArrows.offset.set(-5, 5);
+            }
+        }
+        else
+        {
+            newArrows.offset.set(-3, -45);
+        }
+        */
+
         selectedCharName.text = unlockedCharactersNames[curSelected].toUpperCase();
         selectedCharName.x = FlxG.width - (selectedCharName.width + 10);
         if (selectedCharName.text == '')
@@ -175,12 +194,14 @@ class CharMenu extends MusicBeatState{
         {
             if (leftPress)
             {
-                // newArrows.animation.play('left', true);
+                newArrows.offset.set(33, 3);
+                newArrows.animation.play('left', true);
                 changeSelection(-1);
             }
             if (rightPress)
             {
-                // newArrows.animation.play('right', true);
+                newArrows.offset.set(0, 4);
+                newArrows.animation.play('right', true);
                 changeSelection(1);
             }
             if (accepted)
@@ -193,7 +214,9 @@ class CharMenu extends MusicBeatState{
                 FlxFlicker.flicker(imageArray[curSelected], 0);
 
                 // This is to make the audio stop when leaving to PlayState
-                FlxG.sound.music.volume = 0;	
+                FlxG.sound.music.volume = 0;
+
+                // This is used in Psych for playing music by pressing space, but the line below stops it once the PlayState is entered
 				FreeplayState.destroyFreeplayVocals();
 
                 new FlxTimer().start(0.75, function(tmr:FlxTimer)
@@ -225,11 +248,12 @@ class CharMenu extends MusicBeatState{
                 imageArray[i].dance();
             }
 
-            // Note to self - Uncomment once fixed
-            /*
+            // Code to replay arrow Idle anim when finished
             if (newArrows.animation.finished == true)
+            {
+                newArrows.offset.set(0, -45);
                 newArrows.animation.play('idle');
-            */
+            }
 
             super.update(elapsed);
         }
