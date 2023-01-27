@@ -45,7 +45,7 @@ class CharMenu extends MusicBeatState{
     // Folder locations
     var backgroundFolder:String = 'background'; // The location of the folder storing the characters backgrounds
     var fontFolder:String = 'assets/fonts/'; // Please don't change unless font folder changes, leads to the fonts folder
-    var sharedImagesFolder:String = 'assets/shared/images/'; // Please don't change, leads to the shared folder
+    var sharedFolder:String = 'shared'; // Please don't change, leads to the shared folder
 
     // Variables for what is shown on screen
     var curSelected:Int = 0; // Which character is selected
@@ -300,7 +300,7 @@ class CharMenu extends MusicBeatState{
 
         menuBG.loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
 
-        var barBG:FlxSprite = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(sharedImagesFolder + 'healthBar.png');
+        var barBG:FlxSprite = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar', sharedFolder));
         barBG.screenCenter(X);
         barBG.scrollFactor.set();
         barBG.visible = false;
