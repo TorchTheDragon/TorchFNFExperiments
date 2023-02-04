@@ -67,8 +67,9 @@ class CharMenu extends MusicBeatState{
         if (ifCharsAreUnlocked == null) 
         {
             ifCharsAreUnlocked = [false];
-            if (FlxG.save.data.daUnlockedChars == null)
-                FlxG.save.data.daUnlockedChars = [false];
+            for (i in 0...unlockableChars.length)
+                if (FlxG.save.data.daUnlockedChars[i] == null)
+                    FlxG.save.data.daUnlockedChars[i] = [false];
         }
         // If the unlocked chars are empty, fill it with defaults
         if (unlockedCharacters == null) 
