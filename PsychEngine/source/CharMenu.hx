@@ -23,6 +23,7 @@ import Character.Character;
 import HealthIcon.HealthIcon;
 import flixel.ui.FlxBar;
 
+import Math;
 import StringTools;
 import FreeplayState;
 
@@ -60,6 +61,9 @@ class CharMenu extends MusicBeatState{
 
     // Animated Arrows Variables
     var newArrows:FlxSprite;
+	
+    // Used to not double reset values
+    private var alreadyReset:Bool = false;
 
     override function create()
     {
@@ -298,6 +302,7 @@ class CharMenu extends MusicBeatState{
         // Makes sure the character you ave selected is indeed visible
         imageArray[curSelected].alpha = 1;
         
+	unlockedCharsCheck();
         charCheck();
     }
 
@@ -339,7 +344,9 @@ class CharMenu extends MusicBeatState{
     function unlockedCharsCheck()
     {
         // Resets all values to ensure that nothing is broken
-        resetCharacterSelectionVars();
+        if (!alreadyReset) {
+            resetCharacterSelectionVars();
+        }
 
         // Makes this universal value equal the save data
         ifCharsAreUnlocked = FlxG.save.data.daUnlockedChars;
@@ -349,15 +356,24 @@ class CharMenu extends MusicBeatState{
         {
             if (ifCharsAreUnlocked[i] == true)
             {
-                unlockedCharacters.push(unlockableChars[i]);
-                unlockedCharactersNames.push(unlockableCharsNames[i]);
-                unlockedCharactersBGs.push(unlockableCharsBGs[i]);
+                if (!unlockedCharacters.contains(unlockableChars[i])) {
+                    unlockedCharacters.push(unlockableChars[i]);
+                }
+                if (!unlockedCharactersNames.contains(unlockableCharsNames[i])) {
+                    unlockedCharactersNames.push(unlockableCharsNames[i]);
+                }
+                if (!unlockedCharactersBGs.contains(unlockableCharsBGs[i])) {
+                    unlockedCharactersBGs.push(unlockableCharsBGs[i]);
+                }
             }
         }
     }
 
     function resetCharacterSelectionVars() 
     {
+	// Allows the code to determind if this has already been reset
+        alreadyReset = true;
+	    
         // Just resets all things to defaults
         ifCharsAreUnlocked = [false];
 
