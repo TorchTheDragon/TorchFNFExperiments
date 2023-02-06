@@ -67,9 +67,15 @@ class CharMenu extends MusicBeatState{
         if (ifCharsAreUnlocked == null) 
         {
             ifCharsAreUnlocked = [false];
-            for (i in 0...unlockableChars.length)
-                if (FlxG.save.data.daUnlockedChars[i] == null)
-                    FlxG.save.data.daUnlockedChars[i] = [false];
+            for (i in 0...unlockableChars.length) {
+                if (FlxG.save.data.daUnlockedChars != null) {
+                    if (FlxG.save.data.daUnlockedChars[i] != null) {
+                        ifCharsAreUnlocked[i] = FlxG.save.data.daUnlockedChars[i];
+                    }
+                } else { // For some reason I had to create a failsafe?
+                    FlxG.save.data.daUnlockedChars = ifCharsAreUnlocked;
+                }
+            }
         }
         // If the unlocked chars are empty, fill it with defaults
         if (unlockedCharacters == null) 
@@ -274,7 +280,7 @@ class CharMenu extends MusicBeatState{
         for (i in 0...imageArray.length)
         {
             // Sets the unselected characters to a more transparent form
-            imageArray[i].alpha = 0.6;
+            imageArray[i].alpha = 0.9 - Math.abs(0.15 * (i - curSelected));
 
             // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
             if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
