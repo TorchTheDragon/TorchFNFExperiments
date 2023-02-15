@@ -2,10 +2,7 @@
 package;
 
 import Section.SwagSection;
-
-// These may be swapped depending on what may need it. Some older ones may need a different one based on the 'Song' TypeDef
-import Song.SwagSong; // Usually Used One
-// import Song.SongData; // What my version of Kade engine is apparently using
+import Song.SwagSong;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -22,25 +19,46 @@ import Boyfriend.Boyfriend;
 import Character.Character;
 import HealthIcon.HealthIcon;
 import flixel.ui.FlxBar;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
+// Using for achievements
+import Achievements;
+
+import Math;
 import StringTools;
 import FreeplayState;
 
 class CharMenu extends MusicBeatState{
     // Selectable Character Variables
-    var selectableCharacters:Array<String> = ['bf', 'bf-christmas', 'pico-player']; // Currently Selectable characters
-    var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas', 'Pico']; // Characters names
-    var selectableCharactersBGs:Array<String> = ['BG2', 'BG2', 'BG1']; // Characters backgrounds, 4 are included by default
+    var selectableCharacters:Array<String> = ['bf', 'bf-christmas']; // Currently Selectable characters
+    var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas']; // Characters names
+    // var selectableCharactersBGs:Array<String> = ['BG2', 'BG2']; // Characters backgrounds, 4 are included by default
+    var selectableCharactersColors:Array<FlxColor> = [0xFF00ABC5, 0xFF00ABC5]; // The colors used for the background
+    var selectableCharactersOffsets:Array<Array<Int>> = [[10, 10], [35, 10]]; // [x, y]
     
     // Unlockable characters
-    var unlockableChars:Array<String> = ['tankman-player']; // Unlockable Characters
-    var unlockableCharsNames:Array<String> = ['UGH']; // Names of unlockable Characters
-    var unlockableCharsBGs:Array<String> = ['BG4']; // Backgrounds for Unlockable characters
+    var unlockableChars:Array<String> = ['pico-player', 'tankman-player']; // Unlockable Characters
+    var unlockableCharsNames:Array<String> = ['Pico', 'UGH']; // Names of unlockable Characters
+    // var unlockableCharsBGs:Array<String> = ['BG1', 'BG4']; // Backgrounds for Unlockable characters
+    var unlockableCharsColors:Array<FlxColor> = [0xFF00DD0F, 0xFF6C6C6C]; // The colors used for the background
+    var unlockableCharactersOffsets:Array<Array<Int>> = [[-5, -30], [25, 0]]; // [x, y]
     
     // This is the characters that actually appear on the menu
     var unlockedCharacters:Array<String> = [];
     var unlockedCharactersNames:Array<String> = [];
-    var unlockedCharactersBGs:Array<String> = [];
+    // var unlockedCharactersBGs:Array<String> = [];
+    var unlockedCharactersColors:Array<FlxColor> = [];
+    var unlockedCharactersOffsets:Array<Array<Int>> = [];
+
+    // This'll be used for achievements
+    /* This is an example
+    [
+        ["week3_nomiss", "0"], - This'll unlock the first unlockable character if Week 3 was completed with no misses
+        ["week7_nomiss", "1"] - This'll unlock the second unlockable character
+    ]
+    */
+    var achievementUnlocks:Array<Array<String>> = [["week7_nomiss", "1"], ["week3_nomiss", "0"]];
 
     // Folder locations
     var backgroundFolder:String = 'background'; // The location of the folder storing the characters backgrounds
@@ -51,6 +69,8 @@ class CharMenu extends MusicBeatState{
     var curSelected:Int = 0; // Which character is selected
     var icon:HealthIcon; // The healthicon of the selected character
     var menuBG:FlxSprite; // The background
+    var bgOverlay:FlxSprite;
+    var colorTween:FlxTween = null;
     private var imageArray:Array<Boyfriend> = []; // Array of all the selectable characters
     var selectedCharName:FlxText; // Name of selected character
 
@@ -61,19 +81,60 @@ class CharMenu extends MusicBeatState{
     // Animated Arrows Variables
     var newArrows:FlxSprite;
 
+    // Used to not double reset values;
+    private var alreadyReset:Bool = false;
+
+    // Used for Char Placement
+    var charXoffset:Int = 500;
+    var tweenTime:Float = 0.35;
+
+    // Use for offseting
+    #if debug
+    var inCharMenuDebug:Bool = false;
+    var charMenuDebugText:FlxText;
+    #end
+
     override function create()
     {
-        // Useless for now
+        resetCharacterSelectionVars();
+
+        //Old code for achievement unlocks
+        /*
+        if (Achievements.isAchievementUnlocked('week7complete')) {
+            FlxG.save.data.daUnlockedChars[0] = true;
+        } else {
+            FlxG.save.data.daUnlockedChars[0] = false;
+        }
+        */
+        // Code to check is an achievement is completed
+        for (i in 0...achievementUnlocks.length)
+        {
+            if (Achievements.isAchievementUnlocked(achievementUnlocks[i][0])) {
+                FlxG.save.data.daUnlockedChars[Std.parseInt(achievementUnlocks[i][1])] = true;
+            }
+            else {
+                FlxG.save.data.daUnlockedChars[Std.parseInt(achievementUnlocks[i][1])] = false;
+            }
+        }
+
+        // Determines if the characters are unlocked
         if (ifCharsAreUnlocked == null) 
         {
             ifCharsAreUnlocked = [false];
-            FlxG.save.data.daUnlockedChars = [false];
+            for (i in 0...unlockableChars.length) {
+                if (FlxG.save.data.daUnlockedChars != null) {
+                    if (FlxG.save.data.daUnlockedChars[i] != null) {
+                        ifCharsAreUnlocked[i] = FlxG.save.data.daUnlockedChars[i];
+                    }
+                } else { // For some reason I had to create a failsafe?
+                    FlxG.save.data.daUnlockedChars[i] = false;
+                }
+            }
         }
         // If the unlocked chars are empty, fill it with defaults
         if (unlockedCharacters == null) 
         {
             unlockedCharacters = selectableCharacters;
-            unlockedCharacters[0] = PlayState.SONG.player1;
         } 
         // If names are empty, fill it with defaults
         if (unlockedCharactersNames == null) 
@@ -81,22 +142,38 @@ class CharMenu extends MusicBeatState{
             unlockedCharactersNames = selectableCharactersNames;
         }
         // If backgrounds are empty, fill it with defaults
-        if (unlockedCharactersBGs == null) 
+        /* if (unlockedCharactersBGs == null) 
         {
             unlockedCharactersBGs = selectableCharactersBGs;
+        } */
+        // If colors are empty, fill it with defaults
+        if (unlockedCharactersColors == null)
+        {
+            unlockedCharactersColors = selectableCharactersColors;
         }
-
-        unlockedCharacters[0] = PlayState.SONG.player1;
+        // If offsets are empty, fill with defaults
+        if (unlockedCharactersOffsets == null)
+        {
+            unlockedCharactersOffsets = selectableCharactersOffsets;
+        }
 
         unlockedCharsCheck();
 
         // Making sure the background is added first to be in the back and then adding the character names and character images afterwords
-        menuBG = new FlxSprite().loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
+        menuBG = new FlxSprite().loadGraphic(Paths.image('noColorBackground', backgroundFolder));
         menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
         menuBG.updateHitbox();
         menuBG.screenCenter();
+        menuBG.color = unlockedCharactersColors[curSelected];
         menuBG.antialiasing = true;
         add(menuBG);
+
+        bgOverlay = new FlxSprite().loadGraphic(Paths.image('bgOverlay', backgroundFolder));
+        bgOverlay.setGraphicSize(Std.int(bgOverlay.width * 1.1));
+        bgOverlay.updateHitbox();
+        bgOverlay.screenCenter();
+        bgOverlay.antialiasing = true;
+        add(bgOverlay);
 
         // Adds the chars to the selection
         for (i in 0...unlockedCharacters.length)
@@ -116,18 +193,7 @@ class CharMenu extends MusicBeatState{
         var selectionHeader:Alphabet = new Alphabet(0, 50, 'Character Select', true);
         selectionHeader.screenCenter(X);
         add(selectionHeader);
-
-        // Old arrows
-        // The left and right arrows on screen
-        /*
-        var arrows:FlxSprite = new FlxSprite().loadGraphic(Paths.image('arrowSelection', backgroundFolder));
-        arrows.setGraphicSize(Std.int(arrows.width * 1.1));
-        arrows.screenCenter();
-        arrows.antialiasing = true;
-        add(arrows);
-        */
-
-        // Not centered Correctly, need to figure out how to do that
+        
         // New Animated Arrows
         newArrows = new FlxSprite();
         newArrows.frames = Paths.getSparrowAtlas('newArrows', 'background');
@@ -136,6 +202,7 @@ class CharMenu extends MusicBeatState{
         newArrows.animation.addByPrefix('right', 'rightPress', 24, false);
         newArrows.antialiasing = true;
         newArrows.screenCenter(XY);
+        newArrows.offset.set(0, -45);
         newArrows.animation.play('idle');
         add(newArrows);
 
@@ -145,50 +212,41 @@ class CharMenu extends MusicBeatState{
         selectedCharName.alpha = 0.7;
         add(selectedCharName);
 
-        changeSelection();
+        #if debug
+        charMenuDebugText = new FlxText(FlxG.width * 0.7, FlxG.height * 0.8, 0, "", 32);
+        charMenuDebugText.setFormat(fontFolder + 'vcr.ttf', 32, FlxColor.WHITE, RIGHT);
+        add(charMenuDebugText);
+        #end
+
+        initializeChars();
         cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
         super.create();
     }
 
     override function update(elapsed:Float)
     {
-        // Code for adding arrow offset when an animation is being played
-        // Ended up just being test code
-        /*
-        if (newArrows.animation.curAnim.name != 'idle')
-        {
-            switch (newArrows.animation.curAnim.name)
-            {
-                case 'left':
-                    newArrows.offset.set(25, 5);
-                case 'right':
-                    newArrows.offset.set(-5, 5);
-            }
-        }
-        else
-        {
-            newArrows.offset.set(-3, -45);
-        }
-        */
-
         selectedCharName.text = unlockedCharactersNames[curSelected].toUpperCase();
         selectedCharName.x = FlxG.width - (selectedCharName.width + 10);
-        if (selectedCharName.text == '')
+        if (selectedCharName.text == '' || selectedCharName.text == null)
         {
-            trace('');
+            trace('No name');
             selectedCharName.text = '';
         }
 
         // Must be changed depending on how an engine uses its own controls
         var leftPress = controls.UI_LEFT_P; // Psych
-        // var leftPress = controls.LEFT_P; // Kade
         var rightPress = controls.UI_RIGHT_P; // Psych
-        // var rightPress = controls.RIGHT_P; // Kade
         var accepted = controls.ACCEPT; // Should be Universal
         var goBack = controls.BACK; // Should be Universal
 
-        // Testing only DO NOT USE
-        var unlockTest = FlxG.keys.justPressed.U;
+        #if debug
+        var debugMode = FlxG.keys.justPressed.E;
+        var moveDown = FlxG.keys.justPressed.K;
+        var moveUp = FlxG.keys.justPressed.I;
+        var moveLeft = FlxG.keys.justPressed.J;
+        var moveRight = FlxG.keys.justPressed.L;
+        var unlockTank = FlxG.keys.justPressed.T;
+        #end
         
         if (!alreadySelected)
         {
@@ -234,18 +292,27 @@ class CharMenu extends MusicBeatState{
                     // LoadingState.loadAndSwitchState(new FreeplayState());
                     FlxG.switchState(new FreeplayState());
             }
-            if (unlockTest)
-                {
-                    FlxG.save.data.daUnlockedChars[0] = !FlxG.save.data.daUnlockedChars[0];
-                    if (FlxG.save.data.daUnlockedChars[0] == true)
-                        trace("Unlocked Secret");
-                    else
-                        trace("Locked Secret");
-                }
-    
+            #if debug
+            if (debugMode)
+            {
+                inCharMenuDebug = !inCharMenuDebug;
+            }
+            if (inCharMenuDebug)
+            {
+                charMenuDebugText.alpha = 1;
+                if(moveUp) {unlockedCharactersOffsets[curSelected][1]--; initializeChars();}
+                if(moveDown) {unlockedCharactersOffsets[curSelected][1]++; initializeChars();}
+                if(moveLeft) {unlockedCharactersOffsets[curSelected][0]--; initializeChars();}
+                if(moveRight) {unlockedCharactersOffsets[curSelected][0]++; initializeChars();}
+                charMenuDebugText.text = "Current Character's\nMenu Offsets:\nX: " +  unlockedCharactersOffsets[curSelected][0] + "\nY: " + unlockedCharactersOffsets[curSelected][1];
+            } else {
+                charMenuDebugText.alpha = 0;
+            }
+            #end
+
             for (i in 0...imageArray.length)
             {
-                imageArray[i].dance();
+                if (i == curSelected) {imageArray[i].dance();}
             }
 
             // Code to replay arrow Idle anim when finished
@@ -259,37 +326,71 @@ class CharMenu extends MusicBeatState{
         }
     }
 
-    // Changes the currently selected character
-    function changeSelection(changeAmount:Int = 0):Void
+    function initializeChars()
     {
-        // This just ensures you don't go over the intended amount
-        curSelected += changeAmount;
-        if (curSelected < 0)
-            curSelected = unlockedCharacters.length - 1;
-        if (curSelected >= unlockedCharacters.length)
-            curSelected = 0;
-        
         for (i in 0...imageArray.length)
         {
             // Sets the unselected characters to a more transparent form
-            imageArray[i].alpha = 0.6;
+            imageArray[i].alpha = 0.8 - Math.abs(0.15 * (i - curSelected));
 
             // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
             if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
             {
-                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 325;
-                imageArray[i].y = (FlxG.height / 2) - 60;
+                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 475 + unlockedCharactersOffsets[i][0];
+                imageArray[i].y = (FlxG.height / 2) - 60 + unlockedCharactersOffsets[i][1];
             }
             else
             {
-                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * 400) + 150;
-                imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2);
+                imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 250 + unlockedCharactersOffsets[i][0];
+                imageArray[i].y = (FlxG.height / 2) - (imageArray[i].height / 2) + unlockedCharactersOffsets[i][1];
+                // imageArray[i].screenCenter(Y);
             }
         }
 
-        // Makes sure the character you ave selected is indeed visible
         imageArray[curSelected].alpha = 1;
+
+        unlockedCharsCheck();
+        charCheck();
+    }
+
+    // Changes the currently selected character
+    function changeSelection(changeAmount:Int = 0):Void
+    {
+        curSelected += changeAmount;
+        // This just ensures you don't go over the intended amount
+        if (curSelected < 0)
+            curSelected = unlockedCharacters.length - 1;
+        if (curSelected >= unlockedCharacters.length)
+            curSelected = 0;
+        for (i in 0...imageArray.length)
+        {
+            var alphaTween:FlxTween = null;
+
+            var desiredAlpha:Float = 0;
+            if (i == curSelected)
+                desiredAlpha = 1;
+            else
+                desiredAlpha = 0.8 - Math.abs(0.15 * (i - curSelected));
+            if (alphaTween != null) alphaTween.cancel();
+            alphaTween = FlxTween.tween(imageArray[i], {alpha : desiredAlpha}, tweenTime, {ease: FlxEase.sineOut});
+
+            var destinationX:Float = 0;
+            var moveTween:FlxTween = null;
+
+            // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+            if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
+            {
+                destinationX = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 475 + unlockedCharactersOffsets[i][0];
+            }
+            else
+            {
+                destinationX = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 250 + unlockedCharactersOffsets[i][0];
+            }
+            if (moveTween != null) moveTween.cancel();
+            moveTween = FlxTween.tween(imageArray[i], {x : destinationX}, tweenTime, {ease: FlxEase.quadInOut});
+        }
         
+        unlockedCharsCheck();
         charCheck();
     }
 
@@ -298,19 +399,10 @@ class CharMenu extends MusicBeatState{
     {
         remove(icon);
 
-        menuBG.loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
-
-        var barBG:FlxSprite = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar', sharedFolder));
-        barBG.screenCenter(X);
-        barBG.scrollFactor.set();
-        barBG.visible = false;
-        add(barBG);
-
-        var bar:FlxBar = new FlxBar(barBG.x + 4, barBG.y + 4, RIGHT_TO_LEFT, Std.int(barBG.width - 8), Std.int(barBG.height - 8), this, 'health', 0, 2);
-        bar.scrollFactor.set();
-        bar.createFilledBar(0xFFFF0000, 0xFF66FF33);
-        bar.visible = false;
-        add(bar);
+        // menuBG.loadGraphic(Paths.image(unlockedCharactersBGs[curSelected], backgroundFolder));
+        if (colorTween != null) colorTween.cancel();
+        // colorTween = FlxTween.tween(menuBG, {color : unlockedCharactersColors[curSelected]}, tweenTime);
+        colorTween = FlxTween.color(menuBG, tweenTime, menuBG.color, unlockedCharactersColors[curSelected], {ease: FlxEase.sineOut});
 
         icon = new HealthIcon(unlockedCharacters[curSelected], true);
 
@@ -324,14 +416,16 @@ class CharMenu extends MusicBeatState{
 
         icon.screenCenter(X);
         icon.setGraphicSize(-4);
-        icon.y = (bar.y - (icon.height / 2)) - 20;
+        icon.y = ((FlxG.height * 0.9) + 4) - (icon.height / 2) - 20;
         add(icon);
     }
     
     function unlockedCharsCheck()
     {
         // Resets all values to ensure that nothing is broken
-        resetCharacterSelectionVars();
+        if (!alreadyReset) {
+            resetCharacterSelectionVars();
+        }
 
         // Makes this universal value equal the save data
         ifCharsAreUnlocked = FlxG.save.data.daUnlockedChars;
@@ -341,15 +435,33 @@ class CharMenu extends MusicBeatState{
         {
             if (ifCharsAreUnlocked[i] == true)
             {
-                unlockedCharacters.push(unlockableChars[i]);
-                unlockedCharactersNames.push(unlockableCharsNames[i]);
-                unlockedCharactersBGs.push(unlockableCharsBGs[i]);
+                if (!unlockedCharacters.contains(unlockableChars[i])) {
+                    unlockedCharacters.push(unlockableChars[i]);
+                }
+                if (!unlockedCharactersNames.contains(unlockableCharsNames[i])) {
+                    unlockedCharactersNames.push(unlockableCharsNames[i]);
+                } /*
+                if (!unlockedCharactersBGs.contains(unlockableCharsBGs[i])) {
+                    unlockedCharactersBGs.push(unlockableCharsBGs[i]);
+                } */
+                if (!unlockedCharactersColors.contains(unlockableCharsColors[i])) {
+                    unlockedCharactersColors.push(unlockableCharsColors[i]);
+                }
+                if (!unlockedCharactersOffsets.contains(unlockableCharactersOffsets[i])) {
+                    unlockedCharactersOffsets.push(unlockableCharactersOffsets[i]);
+                }
             }
         }
     }
 
     function resetCharacterSelectionVars() 
     {
+        // Ensures the save data has at least 1 value
+        if (FlxG.save.data.daUnlockedChars == null) {FlxG.save.data.daUnlockedChars = [false];}
+
+        // Allows the code to determind if this has already been reset
+        alreadyReset = true;
+
         // Just resets all things to defaults
         ifCharsAreUnlocked = [false];
 
@@ -361,6 +473,12 @@ class CharMenu extends MusicBeatState{
         unlockedCharactersNames = selectableCharactersNames;
 
         // Grabs default backgrounds
-        unlockedCharactersBGs = selectableCharactersBGs;
+        // unlockedCharactersBGs = selectableCharactersBGs;
+
+        // Grabs default colors
+        unlockedCharactersColors = selectableCharactersColors;
+
+        // Grabs default offsets
+        unlockedCharactersOffsets = selectableCharactersOffsets;
     }
 }
