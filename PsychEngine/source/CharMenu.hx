@@ -80,6 +80,9 @@ class CharMenu extends MusicBeatState{
 
     // Animated Arrows Variables
     var newArrows:FlxSprite;
+	
+    // Used to not double reset values
+    private var alreadyReset:Bool = false;
 
     // Used to not double reset values;
     private var alreadyReset:Bool = false;
