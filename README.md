@@ -4,10 +4,10 @@ You read that right, I am remaking this repo into all of my dumb shit stuff that
 
 ## Current List of Dumb Shit
 
-[x] CharMenu
-[ ] Side to Side credits 
-[ ] Connect Mod to Game Jolt
-[ ] Custom Pause Menu
+-[x] CharMenu
+-[ ] Side to Side credits 
+-[ ] Connect Mod to Game Jolt
+-[ ] Custom Pause Menu
 
 ## Character Menu for Most FNF Engines
 
