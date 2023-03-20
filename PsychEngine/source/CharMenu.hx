@@ -84,9 +84,6 @@ class CharMenu extends MusicBeatState{
     // Used to not double reset values
     private var alreadyReset:Bool = false;
 
-    // Used to not double reset values;
-    private var alreadyReset:Bool = false;
-
     // Used for Char Placement
     var charXoffset:Int = 500;
     var tweenTime:Float = 0.35;
