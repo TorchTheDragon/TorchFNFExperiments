@@ -51,6 +51,8 @@ class FreeplayState extends MusicBeatState
 	var colorTween:FlxTween;
 
 	public var choosingChar:Bool = true;
+	var charText:FlxText;
+	var yesno:FlxText;
 
 	override function create()
 	{
@@ -142,13 +144,22 @@ class FreeplayState extends MusicBeatState
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 
-		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
+		// OG height was 66
+		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 126, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
 		add(diffText);
+
+		charText = new FlxText(scoreText.x, diffText.y + 26, 0, 'Character Menu Enabled? (Tab)', 24);
+		charText.font = diffText.font;
+		add(charText);
+
+		yesno = new FlxText(charText.x, charText.y + 26, 0, '', 24);
+		yesno.font = charText.font;
+		add(yesno);
 
 		add(scoreText);
 
@@ -164,6 +175,7 @@ class FreeplayState extends MusicBeatState
 		
 		changeSelection();
 		changeDiff();
+		enableCharMenu();
 
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
@@ -269,6 +281,7 @@ class FreeplayState extends MusicBeatState
 		var accepted = controls.ACCEPT;
 		var space = FlxG.keys.justPressed.SPACE;
 		var ctrl = FlxG.keys.justPressed.CONTROL;
+		var tab = FlxG.keys.justPressed.TAB;
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
@@ -321,6 +334,11 @@ class FreeplayState extends MusicBeatState
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+		}
+
+		if(tab)
+		{
+			enableCharMenu();
 		}
 
 		if(ctrl)
@@ -451,6 +469,21 @@ class FreeplayState extends MusicBeatState
 		positionHighscore();
 	}
 
+	public function enableCharMenu(a:Bool = true) 
+	{
+		if (a) choosingChar = !choosingChar;
+
+		var huh:String = '';
+
+		if (choosingChar == true)
+			huh = 'Yes';
+		else if (choosingChar == false)
+			huh = 'No';
+
+		yesno.text = '< ' + huh + ' >';
+		positionHighscore();
+	}
+
 	function changeSelection(change:Int = 0, playSound:Bool = true)
 	{
 		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -557,6 +590,10 @@ class FreeplayState extends MusicBeatState
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
+		charText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
+		charText.x -= charText.width / 2;
+		yesno.x = Std.int(scoreBG.x + (scoreBG.width / 2));
+		yesno.x -= yesno.width / 2;
 	}
 }
 

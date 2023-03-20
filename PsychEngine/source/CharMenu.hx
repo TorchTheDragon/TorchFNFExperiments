@@ -87,6 +87,7 @@ class CharMenu extends MusicBeatState{
     // Used for Char Placement
     var charXoffset:Int = 500;
     var tweenTime:Float = 0.35;
+    var destinationTweens:Array<FlxTween> = [null];
 
     // Use for offseting
     #if debug
@@ -98,14 +99,6 @@ class CharMenu extends MusicBeatState{
     {
         resetCharacterSelectionVars();
 
-        //Old code for achievement unlocks
-        /*
-        if (Achievements.isAchievementUnlocked('week7complete')) {
-            FlxG.save.data.daUnlockedChars[0] = true;
-        } else {
-            FlxG.save.data.daUnlockedChars[0] = false;
-        }
-        */
         // Code to check is an achievement is completed
         for (i in 0...achievementUnlocks.length)
         {
@@ -141,11 +134,6 @@ class CharMenu extends MusicBeatState{
         {
             unlockedCharactersNames = selectableCharactersNames;
         }
-        // If backgrounds are empty, fill it with defaults
-        /* if (unlockedCharactersBGs == null) 
-        {
-            unlockedCharactersBGs = selectableCharactersBGs;
-        } */
         // If colors are empty, fill it with defaults
         if (unlockedCharactersColors == null)
         {
@@ -362,6 +350,7 @@ class CharMenu extends MusicBeatState{
             curSelected = unlockedCharacters.length - 1;
         if (curSelected >= unlockedCharacters.length)
             curSelected = 0;
+
         for (i in 0...imageArray.length)
         {
             var alphaTween:FlxTween = null;
@@ -375,7 +364,7 @@ class CharMenu extends MusicBeatState{
             alphaTween = FlxTween.tween(imageArray[i], {alpha : desiredAlpha}, tweenTime, {ease: FlxEase.sineOut});
 
             var destinationX:Float = 0;
-            var moveTween:FlxTween = null;
+            // var moveTween:FlxTween = null;
 
             // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
             if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
@@ -386,8 +375,9 @@ class CharMenu extends MusicBeatState{
             {
                 destinationX = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 250 + unlockedCharactersOffsets[i][0];
             }
-            if (moveTween != null) moveTween.cancel();
-            moveTween = FlxTween.tween(imageArray[i], {x : destinationX}, tweenTime, {ease: FlxEase.quadInOut});
+            // if (moveTween != null) moveTween.cancel();
+            if (destinationTweens[i] != null) destinationTweens[i].cancel();
+            destinationTweens[i] = FlxTween.tween(imageArray[i], {x : destinationX}, tweenTime, {ease: FlxEase.quadInOut});
         }
         
         unlockedCharsCheck();
@@ -440,10 +430,7 @@ class CharMenu extends MusicBeatState{
                 }
                 if (!unlockedCharactersNames.contains(unlockableCharsNames[i])) {
                     unlockedCharactersNames.push(unlockableCharsNames[i]);
-                } /*
-                if (!unlockedCharactersBGs.contains(unlockableCharsBGs[i])) {
-                    unlockedCharactersBGs.push(unlockableCharsBGs[i]);
-                } */
+                }
                 if (!unlockedCharactersColors.contains(unlockableCharsColors[i])) {
                     unlockedCharactersColors.push(unlockableCharsColors[i]);
                 }
@@ -464,6 +451,7 @@ class CharMenu extends MusicBeatState{
 
         // Just resets all things to defaults
         ifCharsAreUnlocked = [false];
+        destinationTweens = [null];
 
         // Ensures the characters are reset and that the first one is the default character
         unlockedCharacters = selectableCharacters;
@@ -471,9 +459,6 @@ class CharMenu extends MusicBeatState{
 
         // Grabs default character names
         unlockedCharactersNames = selectableCharactersNames;
-
-        // Grabs default backgrounds
-        // unlockedCharactersBGs = selectableCharactersBGs;
 
         // Grabs default colors
         unlockedCharactersColors = selectableCharactersColors;
