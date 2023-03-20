@@ -33,21 +33,18 @@ class CharMenu extends MusicBeatState{
     // Selectable Character Variables
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas']; // Currently Selectable characters
     var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas']; // Characters names
-    // var selectableCharactersBGs:Array<String> = ['BG2', 'BG2']; // Characters backgrounds, 4 are included by default
     var selectableCharactersColors:Array<FlxColor> = [0xFF00ABC5, 0xFF00ABC5]; // The colors used for the background
     var selectableCharactersOffsets:Array<Array<Int>> = [[10, 10], [35, 10]]; // [x, y]
     
     // Unlockable characters
     var unlockableChars:Array<String> = ['pico-player', 'tankman-player']; // Unlockable Characters
     var unlockableCharsNames:Array<String> = ['Pico', 'UGH']; // Names of unlockable Characters
-    // var unlockableCharsBGs:Array<String> = ['BG1', 'BG4']; // Backgrounds for Unlockable characters
     var unlockableCharsColors:Array<FlxColor> = [0xFF00DD0F, 0xFF6C6C6C]; // The colors used for the background
     var unlockableCharactersOffsets:Array<Array<Int>> = [[-5, -30], [25, 0]]; // [x, y]
     
     // This is the characters that actually appear on the menu
     var unlockedCharacters:Array<String> = [];
     var unlockedCharactersNames:Array<String> = [];
-    // var unlockedCharactersBGs:Array<String> = [];
     var unlockedCharactersColors:Array<FlxColor> = [];
     var unlockedCharactersOffsets:Array<Array<Int>> = [];
 
@@ -98,6 +95,7 @@ class CharMenu extends MusicBeatState{
     override function create()
     {
         resetCharacterSelectionVars();
+        checkFirstSlot();
 
         // Code to check is an achievement is completed
         for (i in 0...achievementUnlocks.length)
@@ -438,6 +436,29 @@ class CharMenu extends MusicBeatState{
                     unlockedCharactersOffsets.push(unlockableCharactersOffsets[i]);
                 }
             }
+        }
+    }
+
+    /*
+    This is used for the character that is supposed to be in the song, you may want to add your own case.
+    It's to ensure that the character is properly offset in the character selection menu
+    */
+    function checkFirstSlot()
+    {
+        switch (unlockedCharacters[0])
+        {
+            case 'bf':
+                unlockedCharactersOffsets[0] = [10, 10];
+            case 'bf-holding-gf':
+                unlockedCharactersOffsets[0] = [10, 10];
+            case 'bf-car':
+                unlockedCharactersOffsets[0] = [20, -7];
+            case 'bf-christmas':
+                unlockedCharactersOffsets[0] = [35, 10];
+            case 'bf-pixel':
+                unlockedCharactersOffsets[0] = [3, 3];
+            default:
+                unlockedCharactersOffsets[0] = [10, 10];
         }
     }
 
