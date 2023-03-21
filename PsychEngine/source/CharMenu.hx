@@ -319,7 +319,11 @@ class CharMenu extends MusicBeatState{
             // Sets the unselected characters to a more transparent form
             imageArray[i].alpha = 0.8 - Math.abs(0.15 * (i - curSelected));
 
-            // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+            /* 
+            These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+            
+            Nevermind, Go to CheckFirstSlot() function to add specific offsets to make it fit better
+            */
             if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
             {
                 imageArray[i].x = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 475 + unlockedCharactersOffsets[i][0];
@@ -362,9 +366,12 @@ class CharMenu extends MusicBeatState{
             alphaTween = FlxTween.tween(imageArray[i], {alpha : desiredAlpha}, tweenTime, {ease: FlxEase.sineOut});
 
             var destinationX:Float = 0;
-            // var moveTween:FlxTween = null;
 
-            // These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+            /* 
+            These adjustments for Pixel characters may break for different ones, but eh, I am just making it for bf-pixel anyway
+
+            Nevermind, Go to CheckFirstSlot() function to add specific offsets to make it fit better
+            */
             if (StringTools.endsWith(imageArray[i].curCharacter, '-pixel'))
             {
                 destinationX = (FlxG.width / 2) + ((i - curSelected - 1) * charXoffset) + 475 + unlockedCharactersOffsets[i][0];
