@@ -70,6 +70,7 @@ class CharMenu extends MusicBeatState{
     var colorTween:FlxTween = null;
     private var imageArray:Array<Boyfriend> = []; // Array of all the selectable characters
     var selectedCharName:FlxText; // Name of selected character
+    var alphaTweens:Array<FlxTween> = [null]; // Copying destinationTweens idea for this
 
     // Additional Variables
     var alreadySelected:Bool = false; // If the character is already selected
@@ -355,15 +356,13 @@ class CharMenu extends MusicBeatState{
 
         for (i in 0...imageArray.length)
         {
-            var alphaTween:FlxTween = null;
-
             var desiredAlpha:Float = 0;
             if (i == curSelected)
                 desiredAlpha = 1;
             else
                 desiredAlpha = 0.8 - Math.abs(0.15 * (i - curSelected));
-            if (alphaTween != null) alphaTween.cancel();
-            alphaTween = FlxTween.tween(imageArray[i], {alpha : desiredAlpha}, tweenTime, {ease: FlxEase.sineOut});
+            if (alphaTweens[i] != null) alphaTweens[i].cancel();
+            alphaTweens[i] = FlxTween.tween(imageArray[i], {alpha : desiredAlpha}, tweenTime, {ease: FlxEase.sineOut});
 
             var destinationX:Float = 0;
 
