@@ -55,7 +55,10 @@ class CharMenu extends MusicBeatState{
         ["week7_nomiss", "1"] - This'll unlock the second unlockable character
     ]
     */
-    var achievementUnlocks:Array<Array<String>> = [["week7_nomiss", "1"], ["week3_nomiss", "0"]];
+    var achievementUnlocks:Array<Array<String>> = [
+        ["week7_nomiss", "1"], 
+        ["week3_nomiss", "0"]
+    ];
 
     // Folder locations
     var backgroundFolder:String = 'background'; // The location of the folder storing the characters backgrounds
@@ -221,8 +224,8 @@ class CharMenu extends MusicBeatState{
         }
 
         // Must be changed depending on how an engine uses its own controls
-        var leftPress = controls.UI_LEFT_P; // Psych
-        var rightPress = controls.UI_RIGHT_P; // Psych
+        var leftPress = controls.UI_LEFT_P; // Default for Psych
+        var rightPress = controls.UI_RIGHT_P; // Default for Psych
         var accepted = controls.ACCEPT; // Should be Universal
         var goBack = controls.BACK; // Should be Universal
 
@@ -454,6 +457,7 @@ class CharMenu extends MusicBeatState{
         switch (unlockedCharacters[0])
         {
             case 'bf':
+                unlockedCharactersColors[0] = 0xFF00ABC5;
                 unlockedCharactersOffsets[0] = [10, 10];
             case 'bf-holding-gf':
                 unlockedCharactersOffsets[0] = [10, 10];
