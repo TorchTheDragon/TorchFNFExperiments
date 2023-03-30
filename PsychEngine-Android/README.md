@@ -21,7 +21,7 @@ same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, 
 # Build instructions For Android
 
 1. Download
-* <a href = "https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html"> JDK </a> - download jdk 8
+* <a href = "https://www.oracle.com/java/technologies/downloads/#java11"> JDK </a> - download ~~jdk 8~~ do JDK 11 for the new gradles they have made - Torch
 * <a href = "https://developer.android.com/studio"> Android Studio </a>
 * <a href = "https://developer.android.com/ndk/downloads/older_releases?hl=fi"> NDK </a> - download the r15c
 
