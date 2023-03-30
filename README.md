@@ -40,6 +40,10 @@ https://www.youtube.com/watch?v=mOaQ6gWYl9o&ab_channel=TorchTheDragon
 
 No.
 
+### File Location?
+
+Download which one you need from here [CharMenuFiles](https://github.com/TorchTheDragon/TorchFNFExperiments/tree/main/CharMenuFiles)
+
 ## Side to Side Credits
 
 TBD
