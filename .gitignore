@@ -1,8 +1,7 @@
 PsychEngine/.vscode/
 PsychEngine/export/
-BoloVEVOKade/.vscode/
-BoloVEVOKade/export/
-BoloVEVOKade/%HAXELIB_ROOT%/
+PsychEngine-Android/.vscode/
+PsychEngine-Android/export/
 CharMenu.code-workspace
 GitHubReleases/
 BackupFiles/
