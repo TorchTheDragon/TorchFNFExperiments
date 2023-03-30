@@ -8,16 +8,13 @@ Ensure you put the 'background' folder into your assets folder and also ensure t
 # What images are included with the assets?
 
 Arrow Selection (this will probably be updated soon to have animations)
-![Arrow Selection](./background/images/arrowSelection.png)
+![Arrow Selection](./background/images/newArrows.png)
 
-Background 1
-![BG1](./background/images/BG1.png)
+Arrow XML File
+![Arrow XML File](./background/images/newArrows.xml)
 
-Background 2
-![BG2](./background/images/BG2.png)
+BG Overlay
+![BG Overlay](./background/images/bgOverlay.png)
 
-Background 3
-![BG3](./background/images/BG3.png)
-
-Background 4
-![BG4](./background/images/BG4.png)
+Background with no color
+![No color BG](./background/images/noColorBackground.png)

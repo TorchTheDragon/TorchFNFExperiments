@@ -42,13 +42,13 @@ class CharMenu extends MusicBeatState{
     var selectableCharacters:Array<String> = ['bf', 'bf-christmas']; // Currently Selectable characters
     var selectableCharactersNames:Array<String> = ['Default Character', 'Boyfriend but Christmas']; // Characters names
     var selectableCharactersColors:Array<FlxColor> = [0xFF00ABC5, 0xFF00ABC5]; // The colors used for the background
-    var selectableCharactersOffsets:Array<Array<Int>> = [[10, 10], [35, 10]]; // [x, y]
+    var selectableCharactersOffsets:Array<Array<Int>> = [[10, 10], [35, 10]]; // [x, y] offsets
     
     // Unlockable characters
     var unlockableChars:Array<String> = ['pico-player', 'tankman-player']; // Unlockable Characters
     var unlockableCharsNames:Array<String> = ['Pico', 'UGH']; // Names of unlockable Characters
     var unlockableCharsColors:Array<FlxColor> = [0xFF00DD0F, 0xFF6C6C6C]; // The colors used for the background
-    var unlockableCharactersOffsets:Array<Array<Int>> = [[-5, -30], [25, 0]]; // [x, y]
+    var unlockableCharactersOffsets:Array<Array<Int>> = [[-5, -30], [25, 0]]; // [x, y] offsets
     
     // This is the characters that actually appear on the menu
     var unlockedCharacters:Array<String> = [];
