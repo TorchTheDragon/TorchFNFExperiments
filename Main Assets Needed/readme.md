@@ -10,9 +10,6 @@ Ensure you put the 'background' folder into your assets folder and also ensure t
 Arrow Selection (this will probably be updated soon to have animations)
 ![Arrow Selection](./background/images/newArrows.png)
 
-Arrow XML File
-![Arrow XML File](./background/images/newArrows.xml)
-
 BG Overlay
 ![BG Overlay](./background/images/bgOverlay.png)
 
