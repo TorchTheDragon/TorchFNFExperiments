@@ -7,8 +7,8 @@ Ensure you put the 'background' folder into your assets folder and also ensure t
 
 # What images are included with the assets?
 
-Arrow Selection (this will probably be updated soon to have animations)
-![Arrow Selection](./background/images/newArrows.png)
+Animated Arrows (Not animated here cuz I am showing off the sprites)
+![Animated Arrows](./background/images/newArrows.png)
 
 BG Overlay
 ![BG Overlay](./background/images/bgOverlay.png)
