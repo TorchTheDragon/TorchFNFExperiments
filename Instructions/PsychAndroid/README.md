@@ -4,11 +4,11 @@
 -   Step 2: Download the Psych Android CharMenu [here](../../PsychEngine-Android/source/CharMenu.hx).
 -   Step 3: Ensure that the location of the newly installed CharMenu is in the source folder.
 
-    ![Image of Source Folder](../Psych/sourceFolder.png)
+    ![Image of Source Folder](./androidFolders.png)
 
 -   Step 4: Ensure that the background folder is located in the assets folder.
 
-    ![Image of Assets Folder](../Psych/assetsFolder.png)
+    ![Image of Assets Folder](./androidBackground.png)
 
 -   Step 5: Add any characters you want in their specific variables.
 
