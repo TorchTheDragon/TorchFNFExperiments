@@ -4,10 +4,10 @@ You read that right, I am remaking this repo into all of my dumb shit stuff that
 
 ### Current List of Dumb Shit:
 
-- [x] [CharMenu](#character-menu-for-most-fnf-engines)
-- [ ] [Side to Side credits](#side-to-side-credits)
-- [ ] [Connect Mod to Game Jolt](#game-jolt-connection)
-- [ ] [Custom Pause Menu](#custom-pause-menu)
+-   [x] [CharMenu](#character-menu-for-most-fnf-engines)
+-   [ ] [Side to Side credits](#side-to-side-credits)
+-   [ ] [Connect Mod to Game Jolt](#game-jolt-connection)
+-   [ ] [Custom Pause Menu](#custom-pause-menu)
 
 ## Character Menu for Most FNF Engines
 
@@ -22,7 +22,7 @@ I am just simply tired of being asked "Does this work on Psych?" a YEAR after I 
 
 ### Does it work with Psych Engine?
 
-Yes, now please stop asking. [Instructions](./Instructions/Psych/)
+Yes, now please stop asking. [Instructions](./Instructions/CharMenu/Psych/)
 
 ### Can I just drag and drop the file into the Mods folder?
 
@@ -42,7 +42,7 @@ No.
 
 ### File Location?
 
-Download which one you need from here [CharMenuFiles](https://github.com/TorchTheDragon/TorchFNFExperiments/tree/main/CharMenuFiles)
+Download which one you need from here [CharMenuFiles](./CharMenuFiles/)
 
 ## Side to Side Credits
 

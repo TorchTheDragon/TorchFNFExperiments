@@ -1,7 +1,7 @@
-PsychEngine/.vscode/
-PsychEngine/export/
-PsychEngine-Android/.vscode/
-PsychEngine-Android/export/
+Engines/PsychEngine/.vscode/
+Engines/PsychEngine/export/
+Engines/PsychEngine-Android/.vscode/
+Engines/PsychEngine-Android/export/
 CharMenu.code-workspace
 GitHubReleases/
 BackupFiles/

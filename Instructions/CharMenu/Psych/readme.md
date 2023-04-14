@@ -1,15 +1,15 @@
 # Psych Engine Instructions
 
 -   Step 1: Ensure that you have made the background folder a library path in the Project.xml file. If you don't know how, go [here](../../Main%20Assets%20Needed/).
--   Step 2: Download the Psych Engine CharMenu [here](../../PsychEngine/source/CharMenu.hx).
+-   Step 2: Download the Psych Engine CharMenu [here](../../../CharMenuFiles/CharMenu-Psych.hx).
 -   Step 3: Ensure that the location of the newly installed Psych CharMenu is in the source folder.
 
-	![Image of Source Folder](./sourceFolder.png)
-	
+    ![Image of Source Folder](./sourceFolder.png)
+
 -   Step 4: Ensure that the background folder is located in the assets folder.
 
-	![Image of Assets Folder](./assetsFolder.png)
-	
+    ![Image of Assets Folder](./assetsFolder.png)
+
 -   Step 5: Add any characters you want in their specific variables.
 
     ![Image of character variables](./characterVars.png)

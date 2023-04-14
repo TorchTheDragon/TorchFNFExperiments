@@ -1,7 +1,7 @@
 # Psych Engine Android Port Instructions
 
 -   Step 1: Ensure that you have made the background folder a library path in the Project.xml file. If you don't know how, go [here](../../Main%20Assets%20Needed/).
--   Step 2: Download the Psych Android CharMenu [here](../../PsychEngine-Android/source/CharMenu.hx).
+-   Step 2: Download the Psych Android CharMenu [here](../../../CharMenuFiles/CharMenu-PsychAndroid.hx).
 -   Step 3: Ensure that the location of the newly installed CharMenu is in the source folder.
 
     ![Image of Source Folder](../Psych/sourceFolder.png)
