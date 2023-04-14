@@ -1,4 +1,4 @@
-# Torch's Dumb Shit
+# Torch's FNF Experiments
 
 You read that right, I am remaking this repo into all of my dumb shit stuff that I do tutorials on. Anyways that is all, the CharMenu stuff is still found below.
 
