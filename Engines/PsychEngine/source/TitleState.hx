@@ -1,5 +1,8 @@
 package;
 
+import GameJoltEdited;
+import GameJoltEdited.GameJoltAPI;
+
 #if desktop
 import Discord.DiscordClient;
 import sys.thread.Thread;
@@ -90,6 +93,9 @@ class TitleState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		GameJoltAPI.connect();
+		GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
 
 		#if LUA_ALLOWED
 		Paths.pushGlobalMods();

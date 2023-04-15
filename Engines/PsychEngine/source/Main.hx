@@ -1,5 +1,9 @@
 package;
 
+//Temp Comment - Torch
+import GameJoltEdited;
+import GameJoltEdited.GameJoltAPI;
+
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -30,6 +34,8 @@ using StringTools;
 
 class Main extends Sprite
 {
+	public static var gjToastManager:GJToastManager;
+
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
@@ -115,6 +121,11 @@ class Main extends Sprite
 			DiscordClient.shutdown();
 		});
 		#end
+
+		/* //Temp Comment - Torch
+		gjToastManager = new GJToastManager();
+		addChild(gjToastManager);
+		*/
 	}
 
 	// Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
