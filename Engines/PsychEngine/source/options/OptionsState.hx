@@ -1,8 +1,7 @@
 package options;
 
-//Temp Comment - Torch
-import GameJoltEdited;
-import GameJoltEdited.GameJoltAPI;
+import TorchsGameJolt;
+import TorchsGameJolt.GameJoltAPI;
 
 #if desktop
 import Discord.DiscordClient;

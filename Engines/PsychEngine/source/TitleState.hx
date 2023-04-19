@@ -1,7 +1,7 @@
 package;
 
-import GameJoltEdited;
-import GameJoltEdited.GameJoltAPI;
+import TorchsGameJolt;
+import TorchsGameJolt.GameJoltAPI;
 
 #if desktop
 import Discord.DiscordClient;
@@ -95,7 +95,7 @@ class TitleState extends MusicBeatState
 		Paths.clearUnusedMemory();
 
 		GameJoltAPI.connect();
-		GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
+		GameJoltAPI.authUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
 
 		#if LUA_ALLOWED
 		Paths.pushGlobalMods();
