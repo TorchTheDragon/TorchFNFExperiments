@@ -1,8 +1,7 @@
 package;
 
 import TorchsGameJolt;
-import TorchsGameJolt.GameJoltAPI;
-
+import TorchsGJFunctions;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;

@@ -1,8 +1,7 @@
 package;
 
 import TorchsGameJolt;
-import TorchsGameJolt.GameJoltAPI;
-
+import TorchsGJFunctions;
 #if desktop
 import Discord.DiscordClient;
 import sys.thread.Thread;
