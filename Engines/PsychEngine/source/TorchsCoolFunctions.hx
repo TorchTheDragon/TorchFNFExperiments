@@ -17,10 +17,7 @@ import vlc.MP4Handler;
 #end
 class TorchsCoolFunctions
 {
-<<<<<<< HEAD
 	// Just found out this was in CoolUtil lol, still gonna keep it here for now
-=======
->>>>>>> 2dc76f588cbe79ffe407a6159f3ed686d6142752
 	public static function openLink(url:String)
 	{
 		#if linux
