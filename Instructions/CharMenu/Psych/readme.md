@@ -1,6 +1,6 @@
 # Psych Engine Instructions
 
--   Step 1: Ensure that you have made the background folder a library path in the Project.xml file. If you don't know how, go [here](../../Main%20Assets%20Needed/).
+-   Step 1: Ensure that you have made the background folder a library path in the Project.xml file. If you don't know how, go [here](../../../Main%20Assets%20Needed/).
 -   Step 2: Download the Psych Engine CharMenu [here](../../../CharMenuFiles/CharMenu-Psych.hx).
 -   Step 3: Ensure that the location of the newly installed Psych CharMenu is in the source folder.
 
