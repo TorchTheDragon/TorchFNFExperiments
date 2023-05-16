@@ -21,3 +21,13 @@ haxelib run lime rebuild systools [windows, mac, linux]
 <haxelib name="systools" />
 <ndll name="systools" haxelib="systools" />
 ```
+
+3. Then you need to put these three files into your source files. (One of them is just because I plan on making a file for universal functions)
+
+ - [TorchsCoolFunctions](https://github.com/TorchTheDragon/TorchFNFExperiments/blob/main/Engines/PsychEngine/source/TorchsCoolFunctions.hx)
+ - [TorchsGJFunctions](https://github.com/TorchTheDragon/TorchFNFExperiments/blob/main/Engines/PsychEngine/source/TorchsGJFunctions.hx)
+ - [TorchsGameJolt](https://github.com/TorchTheDragon/TorchFNFExperiments/blob/main/Engines/PsychEngine/source/TorchsGameJolt.hx)
+
+Note: In the actual GameJolt source file you need to change [this line](https://github.com/TorchTheDragon/TorchFNFExperiments/blob/main/Engines/PsychEngine/source/TorchsGameJolt.hx#L432) to either another image or make it blank (I don't think nulling it will work, havent tested it though)
+
+4. Add a switch to the GameJolt state where it is needed.
