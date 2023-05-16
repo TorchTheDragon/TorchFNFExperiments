@@ -2,7 +2,7 @@
 
 These are not yet done, just getting this area ready for when I add instructions
 
-~~I am using [TentaRJ's GameJolt Integration](https://github.com/TentaRJ/GameJolt-FNF-Integration) for this. I am just showing ways of implementing it.~~
+I am using [TentaRJ's GameJolt Integration](https://github.com/TentaRJ/GameJolt-FNF-Integration) for this. ~~I am just showing ways of implementing it.~~
 Correction, I am using it as a base as I had to rewite parts of it.
 
 # Instructions
