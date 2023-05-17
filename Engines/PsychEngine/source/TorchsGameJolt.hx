@@ -435,5 +435,6 @@ class GameJoltInfo
 	public static var version:String = 'v1.0';
 
 	// For toasts
+	// Not yet implemented
 	public static var toastLocation:String = "topright"; // Use either 'topleft', 'topright', 'bottomleft', 'bottomright', or 'center' for where the toast should be
 }
