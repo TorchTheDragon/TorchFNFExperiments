@@ -11,7 +11,7 @@ Correction, I am using it as a base as I had to rewite parts of it.
 
 ```
 haxelib git tentools https://github.com/TentaRJ/tentools.git
-haxelib git systools https://github.com/haya3218/systools
+haxelib git systools https://github.com/haya3218/retools.git
 haxelib run lime rebuild systools [windows, mac, linux]
 ```
 
