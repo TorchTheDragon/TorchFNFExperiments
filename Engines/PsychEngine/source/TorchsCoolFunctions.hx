@@ -17,16 +17,6 @@ import vlc.MP4Handler;
 #end
 class TorchsCoolFunctions
 {
-	// Just found out this was in CoolUtil lol, still gonna keep it here for now
-	public static function openLink(url:String)
-	{
-		#if linux
-		Sys.command('/usr/bin/xdg-open', [url, "&"]);
-		#else
-		FlxG.openURL(url);
-		#end
-	}
-
 	public static function restartGame()
 	{
 		#if cpp

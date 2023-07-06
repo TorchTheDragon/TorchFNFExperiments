@@ -169,7 +169,7 @@ class GameJoltLogin extends MusicBeatState
 		helpBox = new FlxButton(0, 550, "GameJolt Token", function()
 		{
 			if (!TorchsGJFunctions.getStatus())
-				QuickFunc.openLink('https://www.youtube.com/watch?v=T5-x7kAGGnE');
+				CoolUtil.browserLoad('https://www.youtube.com/watch?v=T5-x7kAGGnE');
 			else
 			{
 				TorchsGJFunctions.leaderboardToggle = !TorchsGJFunctions.leaderboardToggle;
