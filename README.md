@@ -14,6 +14,8 @@ You read that right, I am remaking this repo into all of my dumb shit stuff that
 Just as the name explains, this should be a working character menu for most of the engines for FNF.
 The Original Character Menu Repository can be found [here](https://github.com/TorchTheDragon/FNFTorchEdition) and the Video can be found [here](https://youtu.be/66AcG4_wd6E).
 
+For those looking for a CharacterMenu that works with Psych, I haven't uploaded that yet because there are still several things I want to implement and fix. For a preview version though, please click on this [link](https://github.com/TorchTheDragon/TorchFNFExperiments/issues/3#issuecomment-2144062522) and download the zip in this reply to an issue.
+
 ### Why did I do this again?
 
 Actually I have a very simple reason...
