@@ -1,3 +1,7 @@
+# READ ME FIRST
+
+This repo is pretty much deprecated at this point, though any future things I do will be in another repo when I decide to actually push them to it. I'm also sorry for the long wait on the updated character menu, there is a bit I plan on adding and fixing but haven't gotten around to.
+
 # Torch's FNF Experiments
 
 You read that right, I am remaking this repo into all of my dumb shit stuff that I do tutorials on. Anyways that is all, the CharMenu stuff is still found below.
